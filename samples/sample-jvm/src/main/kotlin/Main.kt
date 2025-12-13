@@ -1,0 +1,78 @@
+/*
+ * This source is part of the
+ *      _____  ___   ____
+ *  __ / / _ \/ _ | / __/___  _______ _
+ * / // / , _/ __ |/ _/_/ _ \/ __/ _ `/
+ * \___/_/|_/_/ |_/_/ (_)___/_/  \_, /
+ *                              /___/
+ * repository.
+ *
+ * Copyright (C) 2025-present Benoit 'BoD' Lubek (BoD@JRAF.org)
+ * and contributors (https://github.com/BoD/klibfitbit/graphs/contributors)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.atTime
+import kotlinx.datetime.toLocalDateTime
+import org.jraf.klibfitbit.client.FitbitClient
+import org.jraf.klibfitbit.client.configuration.ClientConfiguration
+import org.jraf.klibfitbit.client.configuration.HttpConfiguration
+import org.jraf.klibfitbit.client.configuration.HttpLoggingLevel
+import org.jraf.klibfitbit.client.configuration.OAuthTokens
+import org.jraf.klibfitbit.model.ActivityType
+import org.jraf.klibnanolog.logd
+import kotlin.time.Clock
+import kotlin.time.Duration.Companion.days
+import kotlin.time.Duration.Companion.minutes
+import kotlin.time.ExperimentalTime
+
+@OptIn(ExperimentalTime::class)
+suspend fun main(av: Array<String>) {
+  val fitbitClient = FitbitClient.newInstance(
+    ClientConfiguration(
+      clientId = av[0],
+      oAuthTokens = OAuthTokens(
+        accessToken = av[1],
+        refreshToken = av[2],
+      ),
+      httpConfiguration = HttpConfiguration(
+        loggingLevel = HttpLoggingLevel.ALL,
+      ),
+    ),
+  ) { oAuthTokens ->
+    logd("accessToken: " + oAuthTokens.accessToken)
+    logd("refreshToken: " + oAuthTokens.refreshToken)
+  }
+
+  // Do this only the first time:
+
+//  val authorizationUrlResult = fitbitClient.oAuthCreateAuthorizationUrl(listOf("activity"))
+//  println("Please visit this URL: ${authorizationUrlResult.authorizeUrl}")
+//  println("Enter the callback URL:")
+//  val callbackUrl = readln().trim()
+//  fitbitClient.oAuthFetchTokens(authorizationUrlResult, callbackUrl)
+
+  // Create new activity
+  fitbitClient.createActivity(
+    activityType = ActivityType.TreadmillWalk,
+    start = (Clock.System.now() - 12.minutes).toLocalDateTime(TimeZone.currentSystemDefault()),
+    duration = 10.minutes,
+    distanceMeters = 500.0,
+  )
+
+  // Get all activities from yesterday
+  val yesterday = (Clock.System.now() - 1.days).toLocalDateTime(TimeZone.currentSystemDefault()).date
+  logd(fitbitClient.getActivityList(yesterday.atTime(0, 0, 0)).sumOf { it.distanceMeters }.toString())
+}
