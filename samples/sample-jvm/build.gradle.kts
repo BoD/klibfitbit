@@ -7,7 +7,7 @@ dependencies {
   implementation(KotlinX.coroutines.jdk9)
 
   // Logging
-  implementation("org.jraf:klibnanolog:_")
+  implementation("org.jraf.klibnanolog:klibnanolog:_")
 
   // Date time
   implementation(KotlinX.datetime)

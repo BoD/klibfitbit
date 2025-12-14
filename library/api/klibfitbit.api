@@ -1,0 +1,219 @@
+public abstract interface class org/jraf/klibfitbit/client/FitbitClient {
+	public static final field Companion Lorg/jraf/klibfitbit/client/FitbitClient$Companion;
+	public abstract fun createActivity-1Y68eR8 (Lorg/jraf/klibfitbit/model/ActivityType;Lkotlinx/datetime/LocalDateTime;JDLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getActivityList (Lkotlinx/datetime/LocalDateTime;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun oAuthCreateAuthorizationUrl (Ljava/util/List;)Lorg/jraf/klibfitbit/model/OAuthAuthorizationUrlResult;
+	public abstract fun oAuthFetchTokens (Lorg/jraf/klibfitbit/model/OAuthAuthorizationUrlResult;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class org/jraf/klibfitbit/client/FitbitClient$Companion {
+	public final fun newInstance (Lorg/jraf/klibfitbit/client/configuration/ClientConfiguration;Lkotlin/jvm/functions/Function2;)Lorg/jraf/klibfitbit/client/FitbitClient;
+}
+
+public final class org/jraf/klibfitbit/client/configuration/ClientConfiguration {
+	public fun <init> (Ljava/lang/String;Lorg/jraf/klibfitbit/client/configuration/OAuthTokens;Lorg/jraf/klibfitbit/client/configuration/HttpConfiguration;)V
+	public synthetic fun <init> (Ljava/lang/String;Lorg/jraf/klibfitbit/client/configuration/OAuthTokens;Lorg/jraf/klibfitbit/client/configuration/HttpConfiguration;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lorg/jraf/klibfitbit/client/configuration/OAuthTokens;
+	public final fun component3 ()Lorg/jraf/klibfitbit/client/configuration/HttpConfiguration;
+	public final fun copy (Ljava/lang/String;Lorg/jraf/klibfitbit/client/configuration/OAuthTokens;Lorg/jraf/klibfitbit/client/configuration/HttpConfiguration;)Lorg/jraf/klibfitbit/client/configuration/ClientConfiguration;
+	public static synthetic fun copy$default (Lorg/jraf/klibfitbit/client/configuration/ClientConfiguration;Ljava/lang/String;Lorg/jraf/klibfitbit/client/configuration/OAuthTokens;Lorg/jraf/klibfitbit/client/configuration/HttpConfiguration;ILjava/lang/Object;)Lorg/jraf/klibfitbit/client/configuration/ClientConfiguration;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getClientId ()Ljava/lang/String;
+	public final fun getHttpConfiguration ()Lorg/jraf/klibfitbit/client/configuration/HttpConfiguration;
+	public final fun getOAuthTokens ()Lorg/jraf/klibfitbit/client/configuration/OAuthTokens;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/jraf/klibfitbit/client/configuration/HttpConfiguration {
+	public fun <init> ()V
+	public fun <init> (Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;Lorg/jraf/klibfitbit/client/configuration/HttpProxy;)V
+	public synthetic fun <init> (Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;Lorg/jraf/klibfitbit/client/configuration/HttpProxy;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;
+	public final fun component2 ()Lorg/jraf/klibfitbit/client/configuration/HttpProxy;
+	public final fun copy (Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;Lorg/jraf/klibfitbit/client/configuration/HttpProxy;)Lorg/jraf/klibfitbit/client/configuration/HttpConfiguration;
+	public static synthetic fun copy$default (Lorg/jraf/klibfitbit/client/configuration/HttpConfiguration;Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;Lorg/jraf/klibfitbit/client/configuration/HttpProxy;ILjava/lang/Object;)Lorg/jraf/klibfitbit/client/configuration/HttpConfiguration;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHttpProxy ()Lorg/jraf/klibfitbit/client/configuration/HttpProxy;
+	public final fun getLoggingLevel ()Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/jraf/klibfitbit/client/configuration/HttpLoggingLevel : java/lang/Enum {
+	public static final field ALL Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;
+	public static final field BODY Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;
+	public static final field HEADERS Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;
+	public static final field INFO Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;
+	public static final field NONE Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;
+	public static fun values ()[Lorg/jraf/klibfitbit/client/configuration/HttpLoggingLevel;
+}
+
+public final class org/jraf/klibfitbit/client/configuration/HttpProxy {
+	public fun <init> (Ljava/lang/String;I)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun copy (Ljava/lang/String;I)Lorg/jraf/klibfitbit/client/configuration/HttpProxy;
+	public static synthetic fun copy$default (Lorg/jraf/klibfitbit/client/configuration/HttpProxy;Ljava/lang/String;IILjava/lang/Object;)Lorg/jraf/klibfitbit/client/configuration/HttpProxy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHost ()Ljava/lang/String;
+	public final fun getPort ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/jraf/klibfitbit/client/configuration/OAuthTokens {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lorg/jraf/klibfitbit/client/configuration/OAuthTokens;
+	public static synthetic fun copy$default (Lorg/jraf/klibfitbit/client/configuration/OAuthTokens;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/jraf/klibfitbit/client/configuration/OAuthTokens;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccessToken ()Ljava/lang/String;
+	public final fun getRefreshToken ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/jraf/klibfitbit/internal/json/JsonActivity {
+	public static final field Companion Lorg/jraf/klibfitbit/internal/json/JsonActivity$Companion;
+	public fun <init> (JLjava/lang/String;JIJLjava/lang/String;D)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun component4 ()I
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()D
+	public final fun copy (JLjava/lang/String;JIJLjava/lang/String;D)Lorg/jraf/klibfitbit/internal/json/JsonActivity;
+	public static synthetic fun copy$default (Lorg/jraf/klibfitbit/internal/json/JsonActivity;JLjava/lang/String;JIJLjava/lang/String;DILjava/lang/Object;)Lorg/jraf/klibfitbit/internal/json/JsonActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivityName ()Ljava/lang/String;
+	public final fun getActivityTypeId ()J
+	public final fun getCalories ()I
+	public final fun getDistance ()D
+	public final fun getDuration ()J
+	public final fun getLogId ()J
+	public final fun getStartTime ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class org/jraf/klibfitbit/internal/json/JsonActivity$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lorg/jraf/klibfitbit/internal/json/JsonActivity$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lorg/jraf/klibfitbit/internal/json/JsonActivity;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lorg/jraf/klibfitbit/internal/json/JsonActivity;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class org/jraf/klibfitbit/internal/json/JsonActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class org/jraf/klibfitbit/internal/json/JsonActivityPage {
+	public static final field Companion Lorg/jraf/klibfitbit/internal/json/JsonActivityPage$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lorg/jraf/klibfitbit/internal/json/JsonActivityPage;
+	public static synthetic fun copy$default (Lorg/jraf/klibfitbit/internal/json/JsonActivityPage;Ljava/util/List;ILjava/lang/Object;)Lorg/jraf/klibfitbit/internal/json/JsonActivityPage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivities ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class org/jraf/klibfitbit/internal/json/JsonActivityPage$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lorg/jraf/klibfitbit/internal/json/JsonActivityPage$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lorg/jraf/klibfitbit/internal/json/JsonActivityPage;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lorg/jraf/klibfitbit/internal/json/JsonActivityPage;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class org/jraf/klibfitbit/internal/json/JsonActivityPage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class org/jraf/klibfitbit/internal/json/JsonOAuthTokens {
+	public static final field Companion Lorg/jraf/klibfitbit/internal/json/JsonOAuthTokens$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lorg/jraf/klibfitbit/internal/json/JsonOAuthTokens;
+	public static synthetic fun copy$default (Lorg/jraf/klibfitbit/internal/json/JsonOAuthTokens;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/jraf/klibfitbit/internal/json/JsonOAuthTokens;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccess_token ()Ljava/lang/String;
+	public final fun getRefresh_token ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class org/jraf/klibfitbit/internal/json/JsonOAuthTokens$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lorg/jraf/klibfitbit/internal/json/JsonOAuthTokens$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lorg/jraf/klibfitbit/internal/json/JsonOAuthTokens;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lorg/jraf/klibfitbit/internal/json/JsonOAuthTokens;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class org/jraf/klibfitbit/internal/json/JsonOAuthTokens$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class org/jraf/klibfitbit/model/Activity {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJLkotlin/time/Instant;DLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()I
+	public final fun component5-UwyO8pc ()J
+	public final fun component6 ()Lkotlin/time/Instant;
+	public final fun component7 ()D
+	public final fun copy-TUY-ock (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJLkotlin/time/Instant;D)Lorg/jraf/klibfitbit/model/Activity;
+	public static synthetic fun copy-TUY-ock$default (Lorg/jraf/klibfitbit/model/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJLkotlin/time/Instant;DILjava/lang/Object;)Lorg/jraf/klibfitbit/model/Activity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivityName ()Ljava/lang/String;
+	public final fun getActivityTypeId ()Ljava/lang/String;
+	public final fun getCalories ()I
+	public final fun getDistanceMeters ()D
+	public final fun getDuration-UwyO8pc ()J
+	public final fun getId ()Ljava/lang/String;
+	public final fun getStartTime ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/jraf/klibfitbit/model/ActivityType : java/lang/Enum {
+	public static final field TreadmillWalk Lorg/jraf/klibfitbit/model/ActivityType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()J
+	public static fun valueOf (Ljava/lang/String;)Lorg/jraf/klibfitbit/model/ActivityType;
+	public static fun values ()[Lorg/jraf/klibfitbit/model/ActivityType;
+}
+
+public final class org/jraf/klibfitbit/model/OAuthAuthorizationUrlResult {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lorg/jraf/klibfitbit/model/OAuthAuthorizationUrlResult;
+	public static synthetic fun copy$default (Lorg/jraf/klibfitbit/model/OAuthAuthorizationUrlResult;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lorg/jraf/klibfitbit/model/OAuthAuthorizationUrlResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuthorizeUrl ()Ljava/lang/String;
+	public final fun getCodeVerifier ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+

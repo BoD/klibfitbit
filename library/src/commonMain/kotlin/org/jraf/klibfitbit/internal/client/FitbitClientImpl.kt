@@ -64,10 +64,10 @@ internal class FitbitClientImpl(
   private val onOAuthTokensRenewed: suspend (newOAuthTokens: OAuthTokens) -> Unit,
 ) : FitbitClient {
   private val service: FitbitService by lazy {
-    FitbitService(provideHttpClient(clientConfiguration))
+    FitbitService(provideHttpClient())
   }
 
-  private fun provideHttpClient(clientConfiguration: ClientConfiguration): HttpClient {
+  private fun provideHttpClient(): HttpClient {
     return HttpClient {
       install(ContentNegotiation) {
         json(
@@ -96,10 +96,12 @@ internal class FitbitClientImpl(
       install(Auth) {
         bearer {
           loadTokens {
-            BearerTokens(
-              accessToken = clientConfiguration.oAuthTokens!!.accessToken,
-              refreshToken = clientConfiguration.oAuthTokens.refreshToken,
-            )
+            clientConfiguration.oAuthTokens?.let { oAuthTokens ->
+              BearerTokens(
+                accessToken = oAuthTokens.accessToken,
+                refreshToken = oAuthTokens.refreshToken,
+              )
+            }
           }
 
           refreshTokens {
@@ -109,7 +111,7 @@ internal class FitbitClientImpl(
             )
 
             // Update client configuration with new tokens
-            this@FitbitClientImpl.clientConfiguration = clientConfiguration.copy(
+            clientConfiguration = clientConfiguration.copy(
               oAuthTokens = OAuthTokens(
                 accessToken = jsonOAuthTokens.access_token,
                 refreshToken = jsonOAuthTokens.refresh_token,
@@ -152,7 +154,7 @@ internal class FitbitClientImpl(
     }
   }
 
-  override suspend fun oAuthCreateAuthorizationUrl(scopes: List<String>): OAuthAuthorizationUrlResult {
+  override fun oAuthCreateAuthorizationUrl(scopes: List<String>): OAuthAuthorizationUrlResult {
     // See https://dev.fitbit.com/build/reference/web-api/developer-guide/authorization/
     val randomLetterList: List<Char> = (1..Random.nextInt(43..128))
       .map { Random.nextInt(from = 'a'.code, until = 'z'.code).toChar() }

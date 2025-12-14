@@ -42,7 +42,7 @@ interface FitbitClient {
     ): FitbitClient = FitbitClientImpl(configuration, onOAuthTokensRenewed)
   }
 
-  suspend fun oAuthCreateAuthorizationUrl(scopes: List<String>): OAuthAuthorizationUrlResult
+  fun oAuthCreateAuthorizationUrl(scopes: List<String>): OAuthAuthorizationUrlResult
 
   suspend fun oAuthFetchTokens(
     oAuthAuthorizationUrlResult: OAuthAuthorizationUrlResult,

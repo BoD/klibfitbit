@@ -28,7 +28,7 @@ kotlin {
         implementation(KotlinX.serialization.json)
 
         // Logging
-        implementation("org.jraf:klibnanolog:_")
+        implementation("org.jraf.klibnanolog:klibnanolog:_")
       }
     }
 
