@@ -1,0 +1,212 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../klibfitbit/1.0.1-SNAPSHOT/klibfitbit-1.0.1-SNAPSHOT.module",
+    "group": "org.jraf.klibfitbit",
+    "module": "klibfitbit",
+    "version": "1.0.1-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.2.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "jvmApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "klibfitbit-jvm-1.0.1-SNAPSHOT.jar",
+          "url": "klibfitbit-jvm-1.0.1-SNAPSHOT.jar",
+          "size": 66433,
+          "sha512": "a87537289b7b337ac2c6a0e2a63df8c005d131cc1a8a9657c6e17e2c9d20d05e381d276e6fc8ade2a980800e786e395241354fb3be7802dfd35efa50f109c048",
+          "sha256": "db3b2f14948b2d213861fb3aca3d8bf4d4eddf615d87500bd04428c7255bbfdd",
+          "sha1": "b71cd7554bb84e650396833147f266a7eb8a02c3",
+          "md5": "19c4a22c1cfff79b644c4627089406f3"
+        }
+      ]
+    },
+    {
+      "name": "jvmRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-jdk9",
+          "version": {
+            "requires": "1.10.2",
+            "rejects": [
+              "_"
+            ]
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-okhttp",
+          "version": {
+            "requires": "3.3.3",
+            "rejects": [
+              "_"
+            ]
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-core",
+          "version": {
+            "requires": "3.3.3",
+            "rejects": [
+              "_"
+            ]
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-content-negotiation",
+          "version": {
+            "requires": "3.3.3",
+            "rejects": [
+              "_"
+            ]
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-auth",
+          "version": {
+            "requires": "3.3.3",
+            "rejects": [
+              "_"
+            ]
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-logging",
+          "version": {
+            "requires": "3.3.3",
+            "rejects": [
+              "_"
+            ]
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-serialization-kotlinx-json",
+          "version": {
+            "requires": "3.3.3",
+            "rejects": [
+              "_"
+            ]
+          }
+        },
+        {
+          "group": "com.squareup.okio",
+          "module": "okio",
+          "version": {
+            "requires": "3.16.4",
+            "rejects": [
+              "_"
+            ]
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-datetime",
+          "version": {
+            "requires": "0.7.1",
+            "rejects": [
+              "_"
+            ]
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.9.0",
+            "rejects": [
+              "_"
+            ]
+          }
+        },
+        {
+          "group": "org.jraf.klibnanolog",
+          "module": "klibnanolog",
+          "version": {
+            "requires": "1.0.0",
+            "rejects": [
+              "_"
+            ]
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "klibfitbit-jvm-1.0.1-SNAPSHOT.jar",
+          "url": "klibfitbit-jvm-1.0.1-SNAPSHOT.jar",
+          "size": 66433,
+          "sha512": "a87537289b7b337ac2c6a0e2a63df8c005d131cc1a8a9657c6e17e2c9d20d05e381d276e6fc8ade2a980800e786e395241354fb3be7802dfd35efa50f109c048",
+          "sha256": "db3b2f14948b2d213861fb3aca3d8bf4d4eddf615d87500bd04428c7255bbfdd",
+          "sha1": "b71cd7554bb84e650396833147f266a7eb8a02c3",
+          "md5": "19c4a22c1cfff79b644c4627089406f3"
+        }
+      ]
+    },
+    {
+      "name": "jvmSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "klibfitbit-jvm-1.0.1-SNAPSHOT-sources.jar",
+          "url": "klibfitbit-jvm-1.0.1-SNAPSHOT-sources.jar",
+          "size": 15813,
+          "sha512": "fb2742fde0db9b6bbf5fa6322b0ba2f9db7bf5d69945a5b791e245e443bf7a3b91d1a23370ba6506981ed6a7faeeebbe66ff5ce2df36ecb6c669da766282072a",
+          "sha256": "ae404f12cbc3ff1dc73743d68cd404af9ed3f2511a2ae56e1833d30af7ef5110",
+          "sha1": "f47bd6e4ced581e1d31952e9952257944e615c3b",
+          "md5": "70c0806df834d6ab64153e5a42e27308"
+        }
+      ]
+    }
+  ]
+}
