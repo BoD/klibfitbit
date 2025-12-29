@@ -45,6 +45,3 @@ kotlin {
 }
 
 Librarian.module(project)
-
-// Run `./gradlew publishToMavenLocal` to publish to the local maven repo
-// Run `./gradlew librarianPublishToMavenCentral` to publish to Maven Central

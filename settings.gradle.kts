@@ -4,16 +4,15 @@ pluginManagement {
   repositories {
     mavenCentral()
     gradlePluginPortal()
-    maven("https://storage.googleapis.com/gradleup/m2")
+    maven("https://central.sonatype.com/repository/maven-snapshots/")
   }
 }
 
 dependencyResolutionManagement {
   @Suppress("UnstableApiUsage")
   repositories {
-    mavenLocal()
     mavenCentral()
-    maven("https://storage.googleapis.com/gradleup/m2")
+    maven("https://central.sonatype.com/repository/maven-snapshots/")
   }
 }
 
