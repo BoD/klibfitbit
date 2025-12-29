@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":klibfitbit/commonMain":[],":klibfitbit/jvmMain":[":klibfitbit/commonMain"]}'
