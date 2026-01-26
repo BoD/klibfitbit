@@ -26,5 +26,11 @@
 package org.jraf.klibfitbit.model
 
 enum class ActivityType(val id: Long) {
-  TreadmillWalk(90019)
+  TreadmillWalk(91064),
+  Treadmill(90019),
+  Walk(90013),
+  Bike(90001),
+  Spinning(55001),
+  OutdoorBike(1071),
+  ;
 }
