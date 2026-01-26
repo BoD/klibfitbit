@@ -1,0 +1,179 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../klibfitbit/1.0.1/klibfitbit-1.0.1.module",
+    "group": "org.jraf.klibfitbit",
+    "module": "klibfitbit",
+    "version": "1.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.2.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "jvmApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "klibfitbit-jvm-1.0.1.jar",
+          "url": "klibfitbit-jvm-1.0.1.jar",
+          "size": 66639,
+          "sha512": "379c264b5554bd9946b4a1586b490301ec3a153caa1464702d9f8eff7a9f1835926cfac2795ba978b67194fb857f541e72944050f2d190d18d17472954562afe",
+          "sha256": "78ac33ab5fdd8e22a32956abdf2a9fe35f102a959b7a1ae09952896693bf1038",
+          "sha1": "ec9115db13dd9a6742308737671d2d0ef4da815b",
+          "md5": "72494f6c9900f6606a78394f21cabfe7"
+        }
+      ]
+    },
+    {
+      "name": "jvmRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-jdk9",
+          "version": {
+            "requires": "1.10.2"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-okhttp",
+          "version": {
+            "requires": "3.3.3"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-core",
+          "version": {
+            "requires": "3.3.3"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-content-negotiation",
+          "version": {
+            "requires": "3.3.3"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-auth",
+          "version": {
+            "requires": "3.3.3"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-logging",
+          "version": {
+            "requires": "3.3.3"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-serialization-kotlinx-json",
+          "version": {
+            "requires": "3.3.3"
+          }
+        },
+        {
+          "group": "com.squareup.okio",
+          "module": "okio",
+          "version": {
+            "requires": "3.16.4"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-datetime",
+          "version": {
+            "requires": "0.7.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.9.0"
+          }
+        },
+        {
+          "group": "org.jraf.klibnanolog",
+          "module": "klibnanolog",
+          "version": {
+            "requires": "1.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "klibfitbit-jvm-1.0.1.jar",
+          "url": "klibfitbit-jvm-1.0.1.jar",
+          "size": 66639,
+          "sha512": "379c264b5554bd9946b4a1586b490301ec3a153caa1464702d9f8eff7a9f1835926cfac2795ba978b67194fb857f541e72944050f2d190d18d17472954562afe",
+          "sha256": "78ac33ab5fdd8e22a32956abdf2a9fe35f102a959b7a1ae09952896693bf1038",
+          "sha1": "ec9115db13dd9a6742308737671d2d0ef4da815b",
+          "md5": "72494f6c9900f6606a78394f21cabfe7"
+        }
+      ]
+    },
+    {
+      "name": "jvmSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "klibfitbit-jvm-1.0.1-sources.jar",
+          "url": "klibfitbit-jvm-1.0.1-sources.jar",
+          "size": 15853,
+          "sha512": "c4b3d3e462deebb052d1a26b70b04413686bea1c879fb833e4274fe2e8c2dcfa76b576a669f0335767c15de47d8bed73a4860efe4dcc879762f9dcf5de67d006",
+          "sha256": "7a2412bd66542b1d9131c855828c8a505e5102819252df1f6f86dc900209a091",
+          "sha1": "d45cc2c4bb3ff566205adbdf0ae170b4e1310bdf",
+          "md5": "896244fbadf6052a71b698efa81b04bc"
+        }
+      ]
+    }
+  ]
+}
