@@ -37,11 +37,11 @@
         {
           "name": "klibfitbit-jvm-1.0.2-SNAPSHOT.jar",
           "url": "klibfitbit-jvm-1.0.2-SNAPSHOT.jar",
-          "size": 66662,
-          "sha512": "3cd33e854d2bf68fbcabea7c15fa3857842f9eb9ec6426e96a6c26de1cad6cd689f048c716e184ca9579bbd4eb79a803a08e0935b430e99bd019afbb62a8fba4",
-          "sha256": "71084fe359c3dd5bc23b1aa7ce43bfc2803a7bbd0028cd865376d7a610c47b0d",
-          "sha1": "2c4b63db9388ae864659cc095937f8b546f01fd3",
-          "md5": "948a7b29cfc3fe7e814b671918f0d13b"
+          "size": 66676,
+          "sha512": "a42395bfa1975ef006ea61810ecda82e3c5dc278ddf48d2d615bf385f9c2b85a6afbb821b17dfb722aaf0b06a479ddec24f07caa98e935592f0a3fb40afbe207",
+          "sha256": "c958190e1ed9968232bfa0079b950cb42d85fb1734f560f3c79ea2f778a7f520",
+          "sha1": "aa7fcdca0ae390e1fa46676c933c0c130fec35f3",
+          "md5": "c50a499a2c6c921b68d75d50187e29be"
         }
       ]
     },
@@ -144,11 +144,11 @@
         {
           "name": "klibfitbit-jvm-1.0.2-SNAPSHOT.jar",
           "url": "klibfitbit-jvm-1.0.2-SNAPSHOT.jar",
-          "size": 66662,
-          "sha512": "3cd33e854d2bf68fbcabea7c15fa3857842f9eb9ec6426e96a6c26de1cad6cd689f048c716e184ca9579bbd4eb79a803a08e0935b430e99bd019afbb62a8fba4",
-          "sha256": "71084fe359c3dd5bc23b1aa7ce43bfc2803a7bbd0028cd865376d7a610c47b0d",
-          "sha1": "2c4b63db9388ae864659cc095937f8b546f01fd3",
-          "md5": "948a7b29cfc3fe7e814b671918f0d13b"
+          "size": 66676,
+          "sha512": "a42395bfa1975ef006ea61810ecda82e3c5dc278ddf48d2d615bf385f9c2b85a6afbb821b17dfb722aaf0b06a479ddec24f07caa98e935592f0a3fb40afbe207",
+          "sha256": "c958190e1ed9968232bfa0079b950cb42d85fb1734f560f3c79ea2f778a7f520",
+          "sha1": "aa7fcdca0ae390e1fa46676c933c0c130fec35f3",
+          "md5": "c50a499a2c6c921b68d75d50187e29be"
         }
       ]
     },
@@ -167,11 +167,11 @@
         {
           "name": "klibfitbit-jvm-1.0.2-SNAPSHOT-sources.jar",
           "url": "klibfitbit-jvm-1.0.2-SNAPSHOT-sources.jar",
-          "size": 15860,
-          "sha512": "de370fd2e2f0c59f9b48aff913a1b60cb0c64bd341a2340f2a97b54969ec84910a26f03bce965c37676085b7ea9f1ab4688dd10d8a1a8912da4cb8e8a7163064",
-          "sha256": "20087ef1b1d86efa9bf1b4a297c828e92e3843ab415f9085d938212bee7c5c87",
-          "sha1": "41bef8e793b16cb041eb76ac2b410553f0cf26fc",
-          "md5": "851fb3842b57bf9432bc55912ce1d9b8"
+          "size": 15922,
+          "sha512": "364f88209524896af79ac13993342f245d3f56048489a1ad0fc2353b3097ca6afcfae81226cf81e1a0b605dbdfc71998b32903d7665567e0150fff03e7319b40",
+          "sha256": "dc1e65d1a5a2b93cda59ea04bb1eacb3554e9c23c1457909f001d1581e06349c",
+          "sha1": "21eb91f51cdb856605bc339bc40943a0370873a3",
+          "md5": "e162dcc2d1a0e2a9cde603d621d0428f"
         }
       ]
     }
