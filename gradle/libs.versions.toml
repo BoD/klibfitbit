@@ -1,10 +1,11 @@
 [versions]
-kotlin = "2.3.20-Beta1"
-ktor = "3.3.3"
-okio = "3.16.4"
+kotlin = "2.3.20"
+ktor = "3.4.2"
+okio = "3.17.0"
 kotlinx-datetime = "0.7.1"
-kotlinx-serialization = "1.9.0"
+kotlinx-serialization = "1.11.0"
 kotlinx-coroutines = "1.10.2"
+klibnanolog = "1.0.1"
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
@@ -23,4 +24,4 @@ okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
 kotlinx-coroutines-jdk9 = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-jdk9", version.ref = "kotlinx-coroutines" }
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
-klibnanolog = "org.jraf.klibnanolog:klibnanolog:1.0.0"
+klibnanolog = { group = "org.jraf.klibnanolog", name = "klibnanolog", version.ref = "klibnanolog" }
