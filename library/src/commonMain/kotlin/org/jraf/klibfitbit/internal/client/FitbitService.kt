@@ -58,6 +58,9 @@ internal class FitbitService(
           },
         ),
       )
+
+      // OAuth tokens are supposed to be null when making that call - but if they're not, let's ignore them
+      attributes.put(AuthCircuitBreaker, Unit)
     }.body()
   }
 
