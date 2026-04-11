@@ -43,6 +43,7 @@ suspend fun main(av: Array<String>) {
   val fitbitClient = FitbitClient.newInstance(
     ClientConfiguration(
       clientId = av[0],
+      // Pass null the first time / pass accessToken/refreshToken that are logged below the next times
       oAuthTokens = OAuthTokens(
         accessToken = av[1],
         refreshToken = av[2],
