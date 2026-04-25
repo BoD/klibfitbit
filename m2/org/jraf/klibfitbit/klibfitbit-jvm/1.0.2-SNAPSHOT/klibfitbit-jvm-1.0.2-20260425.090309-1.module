@@ -73,42 +73,42 @@
           "group": "io.ktor",
           "module": "ktor-client-okhttp",
           "version": {
-            "requires": "3.4.2"
+            "requires": "3.4.3"
           }
         },
         {
           "group": "io.ktor",
           "module": "ktor-client-core",
           "version": {
-            "requires": "3.4.2"
+            "requires": "3.4.3"
           }
         },
         {
           "group": "io.ktor",
           "module": "ktor-client-content-negotiation",
           "version": {
-            "requires": "3.4.2"
+            "requires": "3.4.3"
           }
         },
         {
           "group": "io.ktor",
           "module": "ktor-client-auth",
           "version": {
-            "requires": "3.4.2"
+            "requires": "3.4.3"
           }
         },
         {
           "group": "io.ktor",
           "module": "ktor-client-logging",
           "version": {
-            "requires": "3.4.2"
+            "requires": "3.4.3"
           }
         },
         {
           "group": "io.ktor",
           "module": "ktor-serialization-kotlinx-json",
           "version": {
-            "requires": "3.4.2"
+            "requires": "3.4.3"
           }
         },
         {
@@ -136,7 +136,7 @@
           "group": "org.jraf.klibnanolog",
           "module": "klibnanolog",
           "version": {
-            "requires": "1.0.1"
+            "requires": "1.1.0"
           }
         }
       ],

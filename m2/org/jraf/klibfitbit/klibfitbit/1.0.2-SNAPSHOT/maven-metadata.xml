@@ -3,44 +3,44 @@
   <groupId>org.jraf.klibfitbit</groupId>
   <artifactId>klibfitbit</artifactId>
   <versioning>
-    <lastUpdated>20260411102429</lastUpdated>
+    <lastUpdated>20260425090309</lastUpdated>
     <snapshot>
-      <timestamp>20260411.102429</timestamp>
+      <timestamp>20260425.090309</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
         <classifier>kotlin-tooling-metadata</classifier>
         <extension>json</extension>
-        <value>1.0.2-20260411.102429-1</value>
-        <updated>20260411102429</updated>
+        <value>1.0.2-20260425.090309-1</value>
+        <updated>20260425090309</updated>
       </snapshotVersion>
       <snapshotVersion>
-        <extension>module</extension>
-        <value>1.0.2-20260411.102429-1</value>
-        <updated>20260411102429</updated>
+        <extension>jar</extension>
+        <value>1.0.2-20260425.090309-1</value>
+        <updated>20260425090309</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
-        <value>1.0.2-20260411.102429-1</value>
-        <updated>20260411102429</updated>
+        <value>1.0.2-20260425.090309-1</value>
+        <updated>20260425090309</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>1.0.2-20260411.102429-1</value>
-        <updated>20260411102429</updated>
-      </snapshotVersion>
-      <snapshotVersion>
-        <extension>jar</extension>
-        <value>1.0.2-20260411.102429-1</value>
-        <updated>20260411102429</updated>
+        <value>1.0.2-20260425.090309-1</value>
+        <updated>20260425090309</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>javadoc</classifier>
         <extension>jar</extension>
-        <value>1.0.2-20260411.102429-1</value>
-        <updated>20260411102429</updated>
+        <value>1.0.2-20260425.090309-1</value>
+        <updated>20260425090309</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>module</extension>
+        <value>1.0.2-20260425.090309-1</value>
+        <updated>20260425090309</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
