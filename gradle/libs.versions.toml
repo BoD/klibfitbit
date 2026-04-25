@@ -1,15 +1,16 @@
 [versions]
-kotlin = "2.3.20"
-ktor = "3.4.2"
+kotlin = "2.3.21"
+librarian = "0.2.2-SNAPSHOT"
+ktor = "3.4.3"
 okio = "3.17.0"
 kotlinx-datetime = "0.7.1"
 kotlinx-serialization = "1.11.0"
 kotlinx-coroutines = "1.10.2"
-klibnanolog = "1.0.1"
+klibnanolog = "1.1.0"
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-librarian = { id = "com.gradleup.librarian", version = "0.2.2-SNAPSHOT" }
+librarian = { id = "com.gradleup.librarian", version.ref = "librarian" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 
