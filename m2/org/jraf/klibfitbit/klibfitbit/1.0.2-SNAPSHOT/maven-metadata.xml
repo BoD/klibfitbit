@@ -3,44 +3,44 @@
   <groupId>org.jraf.klibfitbit</groupId>
   <artifactId>klibfitbit</artifactId>
   <versioning>
-    <lastUpdated>20260525102906</lastUpdated>
+    <lastUpdated>20260613134426</lastUpdated>
     <snapshot>
-      <timestamp>20260525.102906</timestamp>
+      <timestamp>20260613.134426</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
         <classifier>javadoc</classifier>
         <extension>jar</extension>
-        <value>1.0.2-20260525.102906-1</value>
-        <updated>20260525102906</updated>
+        <value>1.0.2-20260613.134426-1</value>
+        <updated>20260613134426</updated>
       </snapshotVersion>
       <snapshotVersion>
-        <extension>module</extension>
-        <value>1.0.2-20260525.102906-1</value>
-        <updated>20260525102906</updated>
-      </snapshotVersion>
-      <snapshotVersion>
-        <classifier>kotlin-tooling-metadata</classifier>
-        <extension>json</extension>
-        <value>1.0.2-20260525.102906-1</value>
-        <updated>20260525102906</updated>
+        <extension>jar</extension>
+        <value>1.0.2-20260613.134426-1</value>
+        <updated>20260613134426</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>1.0.2-20260525.102906-1</value>
-        <updated>20260525102906</updated>
+        <value>1.0.2-20260613.134426-1</value>
+        <updated>20260613134426</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>module</extension>
+        <value>1.0.2-20260613.134426-1</value>
+        <updated>20260613134426</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
-        <value>1.0.2-20260525.102906-1</value>
-        <updated>20260525102906</updated>
+        <value>1.0.2-20260613.134426-1</value>
+        <updated>20260613134426</updated>
       </snapshotVersion>
       <snapshotVersion>
-        <extension>jar</extension>
-        <value>1.0.2-20260525.102906-1</value>
-        <updated>20260525102906</updated>
+        <classifier>kotlin-tooling-metadata</classifier>
+        <extension>json</extension>
+        <value>1.0.2-20260613.134426-1</value>
+        <updated>20260613134426</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>

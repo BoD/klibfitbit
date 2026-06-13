@@ -1,1 +1,1 @@
-sourceset_dependencies = '{":klibfitbit/commonMain":[],":klibfitbit/jvmMain":[":klibfitbit/commonMain"]}'
+sourceset_dependencies = '{":klibfitbit/appleMain":[":klibfitbit/nativeMain"],":klibfitbit/commonMain":[],":klibfitbit/jvmMain":[":klibfitbit/commonMain"],":klibfitbit/macosArm64Main":[":klibfitbit/macosMain"],":klibfitbit/macosMain":[":klibfitbit/appleMain"],":klibfitbit/nativeMain":[":klibfitbit/commonMain"]}'
