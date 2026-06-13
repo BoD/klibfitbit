@@ -11,4 +11,6 @@ captures
 !.idea/codeStyles/
 !.idea/copyright/
 
+.kotlin
+
 versions.properties

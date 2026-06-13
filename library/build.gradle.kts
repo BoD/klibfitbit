@@ -8,6 +8,8 @@ plugins {
 kotlin {
   jvm()
 
+  macosArm64()
+
   sourceSets {
     commonMain {
       dependencies {
@@ -39,6 +41,13 @@ kotlin {
 
         // Ktor OkHttp
         implementation(libs.ktor.client.okhttp)
+      }
+    }
+
+    macosArm64Main {
+      dependencies {
+        // Ktor CIO
+        implementation(libs.ktor.client.darwin)
       }
     }
   }

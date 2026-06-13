@@ -83,7 +83,7 @@ internal class FitbitClientImpl(
         socketTimeoutMillis = 60_000
       }
       engine {
-        // Setup a proxy if requested
+        // Set up a proxy if requested
         clientConfiguration.httpConfiguration.httpProxy?.let { httpProxy ->
           proxy = ProxyBuilder.http(
             URLBuilder().apply {
@@ -158,7 +158,7 @@ internal class FitbitClientImpl(
     // See https://dev.fitbit.com/build/reference/web-api/developer-guide/authorization/
     val randomLetterList: List<Char> = (1..Random.nextInt(43..128))
       .map { Random.nextInt(from = 'a'.code, until = 'z'.code).toChar() }
-    val codeVerifier = String(randomLetterList.toCharArray())
+    val codeVerifier = randomLetterList.toCharArray().concatToString()
 
     // A SHA-256 hash of the code verifier, base64url encoded with padding omitted, called the code challenge
     val codeChallenge = randomLetterList.map { it.code.toByte() }.toByteArray().toByteString().sha256().base64Url().removeSuffix("=")
