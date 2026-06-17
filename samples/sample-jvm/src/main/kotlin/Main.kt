@@ -24,17 +24,15 @@
  */
 
 import kotlinx.datetime.TimeZone
-import kotlinx.datetime.atTime
 import kotlinx.datetime.toLocalDateTime
 import org.jraf.klibfitbit.client.FitbitClient
 import org.jraf.klibfitbit.client.configuration.ClientConfiguration
 import org.jraf.klibfitbit.client.configuration.HttpConfiguration
 import org.jraf.klibfitbit.client.configuration.HttpLoggingLevel
 import org.jraf.klibfitbit.client.configuration.OAuthTokens
-import org.jraf.klibfitbit.model.ActivityType
+import org.jraf.klibfitbit.model.ExerciseType
 import org.jraf.klibnanolog.logd
 import kotlin.time.Clock
-import kotlin.time.Duration.Companion.days
 import kotlin.time.Duration.Companion.minutes
 import kotlin.time.ExperimentalTime
 
@@ -44,9 +42,10 @@ suspend fun main(av: Array<String>) {
     ClientConfiguration(
       clientId = av[0],
       // Pass null the first time / pass accessToken/refreshToken that are logged below the next times
+      clientSecret = av[1],
       oAuthTokens = OAuthTokens(
-        accessToken = av[1],
-        refreshToken = av[2],
+        accessToken = av[2],
+        refreshToken = av[3],
       ),
       httpConfiguration = HttpConfiguration(
         loggingLevel = HttpLoggingLevel.ALL,
@@ -59,7 +58,12 @@ suspend fun main(av: Array<String>) {
 
   // Do this only the first time:
 
-//  val authorizationUrlResult = fitbitClient.oAuthCreateAuthorizationUrl(listOf("activity"))
+//  val authorizationUrlResult = fitbitClient.oAuthCreateAuthorizationUrl(listOf(
+//      "https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly",
+//      "https://www.googleapis.com/auth/googlehealth.activity_and_fitness.writeonly",
+//      "https://www.googleapis.com/auth/googlehealth.sleep.readonly",
+//      "https://www.googleapis.com/auth/googlehealth.sleep.writeonly",
+//  ))
 //  println("Please visit this URL: ${authorizationUrlResult.authorizeUrl}")
 //  println("Enter the callback URL:")
 //  val callbackUrl = readln().trim()
@@ -67,13 +71,13 @@ suspend fun main(av: Array<String>) {
 
   // Create new activity
   fitbitClient.createActivity(
-    activityType = ActivityType.TreadmillWalk,
-    start = (Clock.System.now() - 12.minutes).toLocalDateTime(TimeZone.currentSystemDefault()),
+    exerciseType = ExerciseType.WALKING,
+    start = (Clock.System.now() - 12.minutes),
     duration = 10.minutes,
     distanceMeters = 500.0,
   )
 
   // Get all activities from yesterday
-  val yesterday = (Clock.System.now() - 1.days).toLocalDateTime(TimeZone.currentSystemDefault()).date
-  logd(fitbitClient.getActivityList(yesterday.atTime(0, 0, 0)).sumOf { it.distanceMeters }.toString())
+  val today = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date
+  logd(fitbitClient.getActivityList(today).sumOf { it.distanceMeters }.toString())
 }
