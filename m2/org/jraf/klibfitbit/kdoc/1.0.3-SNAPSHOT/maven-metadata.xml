@@ -3,22 +3,22 @@
   <groupId>org.jraf.klibfitbit</groupId>
   <artifactId>kdoc</artifactId>
   <versioning>
-    <lastUpdated>20260613135918</lastUpdated>
+    <lastUpdated>20260711133158</lastUpdated>
     <snapshot>
-      <timestamp>20260613.135918</timestamp>
+      <timestamp>20260711.133158</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
-        <classifier>javadoc</classifier>
-        <extension>jar</extension>
-        <value>1.0.3-20260613.135918-1</value>
-        <updated>20260613135918</updated>
+        <extension>pom</extension>
+        <value>1.0.3-20260711.133158-1</value>
+        <updated>20260711133158</updated>
       </snapshotVersion>
       <snapshotVersion>
-        <extension>pom</extension>
-        <value>1.0.3-20260613.135918-1</value>
-        <updated>20260613135918</updated>
+        <classifier>javadoc</classifier>
+        <extension>jar</extension>
+        <value>1.0.3-20260711.133158-1</value>
+        <updated>20260711133158</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
