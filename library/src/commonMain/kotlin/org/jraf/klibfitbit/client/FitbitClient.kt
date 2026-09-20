@@ -33,7 +33,7 @@ import kotlinx.datetime.toLocalDateTime
 import org.jraf.klibfitbit.client.configuration.ClientConfiguration
 import org.jraf.klibfitbit.client.configuration.OAuthTokens
 import org.jraf.klibfitbit.internal.client.FitbitClientImpl
-import org.jraf.klibfitbit.model.Activity
+import org.jraf.klibfitbit.model.DataPoint
 import org.jraf.klibfitbit.model.ExerciseType
 import org.jraf.klibfitbit.model.OAuthAuthorizationUrlResult
 import kotlin.time.Clock
@@ -60,17 +60,17 @@ interface FitbitClient : AutoCloseable {
    * @param toDate is exclusive.
    */
   @OptIn(ExperimentalTime::class)
-  suspend fun getActivityList(
+  suspend fun getDataPointList(
     fromDate: LocalDate,
     // Default: tomorrow
     toDate: LocalDate = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date.plus(1, DateTimeUnit.DAY),
-  ): List<Activity>
+  ): List<DataPoint>
 
   @OptIn(ExperimentalTime::class)
-  suspend fun createActivity(
+  suspend fun createDataPoint(
     exerciseType: ExerciseType,
-    start: Instant,
-    duration: Duration,
+    startTime: Instant,
+    activeDuration: Duration,
     distanceMeters: Double,
   )
 }

@@ -46,7 +46,7 @@ import org.jraf.klibfitbit.internal.json.JsonOAuthTokens
 import org.jraf.klibfitbit.internal.json.JsonRefreshTokenResponse
 import org.jraf.klibfitbit.internal.json.MetricsSummary
 import org.jraf.klibfitbit.model.ExerciseType
-import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 import kotlin.time.Instant
 
@@ -61,7 +61,7 @@ internal class FitbitService(
     code: String,
     codeVerifier: String,
     clientId: String,
-    clientSecret: String
+    clientSecret: String,
   ): JsonOAuthTokens {
     return httpClient.post("https://oauth2.googleapis.com/token") {
       setBody(
@@ -101,39 +101,38 @@ internal class FitbitService(
   }
 
   // https://developers.google.com/health/reference/rest/v4/users.dataTypes.dataPoints/list
-  suspend fun getActivityList(startDate: String, endDate: String): JsonDataPoints {
+  suspend fun getDataPointList(fromDate: String, toDate: String): JsonDataPoints {
     return httpClient.get("$URL_BASE/v4/users/me/dataTypes/exercise/dataPoints") {
       contentType(ContentType.Application.Json)
       parameter(
         "filter",
-        "exercise.interval.civil_start_time >= $startDate AND exercise.interval.civil_start_time < $endDate",
+        "exercise.interval.civil_start_time >= $fromDate AND exercise.interval.civil_start_time < $toDate",
       )
     }.body()
   }
 
   // https://developers.google.com/health/reference/rest/v4/users.dataTypes.dataPoints/create
   @OptIn(ExperimentalTime::class)
-  suspend fun createActivity(
+  suspend fun createDataPoint(
     exerciseType: ExerciseType,
-    start: Instant,
-    durationMillis: Long,
+    startTime: Instant,
+    activeDuration: Duration,
     distanceMillimeters: Int,
   ) {
     httpClient.post("$URL_BASE/v4/users/me/dataTypes/exercise/dataPoints") {
+      val endTime = startTime.plus(activeDuration)
       contentType(ContentType.Application.Json)
       setBody(
         JsonDataPoint(
-          name = "",
           exercise = JsonExercise(
             interval = JsonInterval(
-              startTime = start,
-              startUtcOffset = start.offsetInSeconds(),
-              endTime = start.plus(durationMillis.milliseconds),
-              endUtcOffset = start.plus(durationMillis.milliseconds).offsetInSeconds(),
+              startTime = startTime.toString(),
+              startUtcOffset = startTime.offsetInSeconds(),
+              endTime = endTime.toString(),
+              endUtcOffset = endTime.offsetInSeconds(),
             ),
-            activeDuration = "${(durationMillis / 1000)}s",
+            activeDuration = "${activeDuration.inWholeSeconds}s",
             exerciseType = exerciseType.name,
-            displayName = "My exercise", // Doesn't matter, it's overridden by Google
             metricsSummary = MetricsSummary(
               caloriesKcal = 0f,
               distanceMillimeters = distanceMillimeters,

@@ -29,13 +29,18 @@ import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 import kotlin.time.Instant
 
-@OptIn(ExperimentalTime::class)
-data class Activity(
-  val id: String,
-  val activityName: String,
-  val exerciseType: ExerciseType,
-  val calories: Int,
-  val duration: Duration,
-  val startTime: Instant,
-  val distanceMeters: Double,
-)
+sealed interface DataPoint {
+  val name: String
+
+  @OptIn(ExperimentalTime::class)
+  data class Exercise(
+    override val name: String,
+    val startTime: Instant,
+    val endTime: Instant,
+    val exerciseType: ExerciseType,
+    val caloriesKcal: Int,
+    val activeDuration: Duration,
+    val distanceMeters: Double,
+  ) : DataPoint
+}
+

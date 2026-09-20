@@ -26,14 +26,12 @@
 package org.jraf.klibfitbit.internal.json
 
 import kotlinx.serialization.Serializable
-import kotlin.time.ExperimentalTime
-import kotlin.time.Instant
 
 @Serializable
-data class JsonInterval @OptIn(ExperimentalTime::class) constructor(
-  val startTime: Instant,
+data class JsonInterval(
+  val startTime: String,
   val startUtcOffset: String,
-  val endTime: Instant,
+  val endTime: String,
   val endUtcOffset: String,
 )
 
@@ -48,13 +46,12 @@ data class JsonExercise(
   val interval: JsonInterval,
   val activeDuration: String,
   val exerciseType: String,
-  val displayName: String,
   val metricsSummary: MetricsSummary,
 )
 
 @Serializable
 data class JsonDataPoint(
-  val name: String,
+  val name: String? = null,
   val exercise: JsonExercise,
 )
 

@@ -71,16 +71,16 @@ suspend fun main(av: Array<String>) {
       fitbitClient.oAuthFetchTokens(authorizationUrlResult, callbackUrl)
     }
 
-    // Create new activity
-    fitbitClient.createActivity(
+    // Create new exercise data point
+    fitbitClient.createDataPoint(
       exerciseType = ExerciseType.TREADMILL_WALK,
-      start = (Clock.System.now() - 5.minutes),
-      duration = 3.minutes,
+      startTime = (Clock.System.now() - 5.minutes),
+      activeDuration = 3.minutes,
       distanceMeters = 342.5,
     )
 
     // Get all activities from today
     val today = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date
-    logd(fitbitClient.getActivityList(today))
+    logd(fitbitClient.getDataPointList(today))
   }
 }

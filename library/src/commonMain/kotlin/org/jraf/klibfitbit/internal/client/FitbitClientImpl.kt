@@ -48,7 +48,7 @@ import org.jraf.klibfitbit.client.configuration.ClientConfiguration
 import org.jraf.klibfitbit.client.configuration.HttpLoggingLevel
 import org.jraf.klibfitbit.client.configuration.OAuthTokens
 import org.jraf.klibfitbit.internal.json.JsonDataPoint
-import org.jraf.klibfitbit.model.Activity
+import org.jraf.klibfitbit.model.DataPoint
 import org.jraf.klibfitbit.model.ExerciseType
 import org.jraf.klibfitbit.model.OAuthAuthorizationUrlResult
 import org.jraf.klibnanolog.logd
@@ -202,31 +202,31 @@ internal class FitbitClientImpl(
   }
 
   @OptIn(FormatStringsInDatetimeFormats::class)
-  override suspend fun getActivityList(
+  override suspend fun getDataPointList(
     fromDate: LocalDate,
     toDate: LocalDate,
-  ): List<Activity> {
+  ): List<DataPoint> {
     val dateTimeFormat = LocalDate.Format {
       byUnicodePattern("yyyy-MM-dd")
     }
-    val startDateString = dateTimeFormat.format(fromDate)
-    val endDateString = dateTimeFormat.format(toDate)
+    val fromDateStr = dateTimeFormat.format(fromDate)
+    val toDateStr = dateTimeFormat.format(toDate)
 
-    val jsonActivityPage = service.getActivityList(startDateString, endDateString)
-    return jsonActivityPage.dataPoints.map { it.toActivity() }
+    val jsonDataPoints = service.getDataPointList(fromDate = fromDateStr, toDate = toDateStr)
+    return jsonDataPoints.dataPoints.map { it.toDataPoint() }
   }
 
   @OptIn(ExperimentalTime::class)
-  override suspend fun createActivity(
+  override suspend fun createDataPoint(
     exerciseType: ExerciseType,
-    start: Instant,
-    duration: Duration,
+    startTime: Instant,
+    activeDuration: Duration,
     distanceMeters: Double,
   ) {
-    service.createActivity(
+    service.createDataPoint(
       exerciseType = exerciseType,
-      start = start,
-      durationMillis = duration.inWholeMilliseconds,
+      startTime = startTime,
+      activeDuration = activeDuration,
       distanceMillimeters = (distanceMeters * 1000).toInt(),
     )
   }
@@ -241,15 +241,15 @@ private fun String.toExerciseType(): ExerciseType {
 }
 
 @OptIn(ExperimentalTime::class)
-private fun JsonDataPoint.toActivity(): Activity {
-  return Activity(
-    id = this.name.substringAfterLast("/"),
-    activityName = this.exercise.displayName,
-    exerciseType = this.exercise.exerciseType.toExerciseType(),
-    calories = this.exercise.metricsSummary.caloriesKcal.toInt(),
+private fun JsonDataPoint.toDataPoint(): DataPoint.Exercise {
+  return DataPoint.Exercise(
+    name = name!!,
+    startTime = Instant.parse(exercise.interval.startTime),
+    endTime = Instant.parse(exercise.interval.endTime),
     // Duration is like "123s"
-    duration = Duration.parse(this.exercise.activeDuration),
-    startTime = this.exercise.interval.startTime,
-    distanceMeters = this.exercise.metricsSummary.distanceMillimeters / 1000.0,
+    activeDuration = Duration.parse(exercise.activeDuration),
+    exerciseType = exercise.exerciseType.toExerciseType(),
+    caloriesKcal = exercise.metricsSummary.caloriesKcal.toInt(),
+    distanceMeters = exercise.metricsSummary.distanceMillimeters / 1000.0,
   )
 }
