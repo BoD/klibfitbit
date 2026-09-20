@@ -3,44 +3,44 @@
   <groupId>org.jraf.klibfitbit</groupId>
   <artifactId>klibfitbit</artifactId>
   <versioning>
-    <lastUpdated>20260711133158</lastUpdated>
+    <lastUpdated>20260920174143</lastUpdated>
     <snapshot>
-      <timestamp>20260711.133158</timestamp>
+      <timestamp>20260920.174143</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
-        <classifier>kotlin-tooling-metadata</classifier>
-        <extension>json</extension>
-        <value>1.0.3-20260711.133158-1</value>
-        <updated>20260711133158</updated>
+        <extension>pom</extension>
+        <value>1.0.3-20260920.174143-1</value>
+        <updated>20260920174143</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>javadoc</classifier>
         <extension>jar</extension>
-        <value>1.0.3-20260711.133158-1</value>
-        <updated>20260711133158</updated>
+        <value>1.0.3-20260920.174143-1</value>
+        <updated>20260920174143</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0.3-20260920.174143-1</value>
+        <updated>20260920174143</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
-        <value>1.0.3-20260711.133158-1</value>
-        <updated>20260711133158</updated>
+        <value>1.0.3-20260920.174143-1</value>
+        <updated>20260920174143</updated>
       </snapshotVersion>
       <snapshotVersion>
-        <extension>pom</extension>
-        <value>1.0.3-20260711.133158-1</value>
-        <updated>20260711133158</updated>
+        <classifier>kotlin-tooling-metadata</classifier>
+        <extension>json</extension>
+        <value>1.0.3-20260920.174143-1</value>
+        <updated>20260920174143</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>module</extension>
-        <value>1.0.3-20260711.133158-1</value>
-        <updated>20260711133158</updated>
-      </snapshotVersion>
-      <snapshotVersion>
-        <extension>jar</extension>
-        <value>1.0.3-20260711.133158-1</value>
-        <updated>20260711133158</updated>
+        <value>1.0.3-20260920.174143-1</value>
+        <updated>20260920174143</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
