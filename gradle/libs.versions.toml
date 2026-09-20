@@ -1,12 +1,12 @@
 [versions]
-kotlin = "2.4.0"
+kotlin = "2.4.20"
 librarian = "0.2.2-SNAPSHOT"
-ktor = "3.5.0"
-okio = "3.17.0"
+ktor = "3.6.0"
+okio = "3.18.2"
 kotlinx-datetime = "0.8.0"
 kotlinx-serialization = "1.11.0"
 kotlinx-coroutines = "1.11.0"
-klibnanolog = "1.2.0"
+klibnanolog = "1.2.1"
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
