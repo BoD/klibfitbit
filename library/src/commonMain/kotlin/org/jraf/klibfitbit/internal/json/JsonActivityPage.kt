@@ -26,19 +26,40 @@
 package org.jraf.klibfitbit.internal.json
 
 import kotlinx.serialization.Serializable
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
 
 @Serializable
-data class JsonActivityPage(
-  val activities: List<JsonActivity>,
+data class JsonInterval @OptIn(ExperimentalTime::class) constructor(
+  val startTime: Instant,
+  val startUtcOffset: String,
+  val endTime: Instant,
+  val endUtcOffset: String,
 )
 
 @Serializable
-data class JsonActivity(
-  val logId: Long,
-  val activityName: String,
-  val activityTypeId: Long,
-  val calories: Int,
-  val duration: Long,
-  val startTime: String,
-  val distance: Double,
+data class MetricsSummary(
+  val caloriesKcal: Float = 0f,
+  val distanceMillimeters: Int = 0,
+)
+
+@Serializable
+data class JsonExercise(
+  val interval: JsonInterval,
+  val activeDuration: String,
+  val exerciseType: String,
+  val displayName: String,
+  val metricsSummary: MetricsSummary,
+)
+
+@Serializable
+data class JsonDataPoint(
+  val name: String,
+  val exercise: JsonExercise,
+)
+
+
+@Serializable
+data class JsonDataPoints(
+  val dataPoints: List<JsonDataPoint> = emptyList(),
 )

@@ -25,16 +25,23 @@
 
 package org.jraf.klibfitbit.client
 
-import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.DateTimeUnit
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.plus
+import kotlinx.datetime.toLocalDateTime
 import org.jraf.klibfitbit.client.configuration.ClientConfiguration
 import org.jraf.klibfitbit.client.configuration.OAuthTokens
 import org.jraf.klibfitbit.internal.client.FitbitClientImpl
 import org.jraf.klibfitbit.model.Activity
-import org.jraf.klibfitbit.model.ActivityType
+import org.jraf.klibfitbit.model.ExerciseType
 import org.jraf.klibfitbit.model.OAuthAuthorizationUrlResult
+import kotlin.time.Clock
 import kotlin.time.Duration
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
 
-interface FitbitClient {
+interface FitbitClient : AutoCloseable {
   companion object {
     fun newInstance(
       configuration: ClientConfiguration,
@@ -49,11 +56,20 @@ interface FitbitClient {
     authorizationCallbackUrl: String,
   )
 
-  suspend fun getActivityList(afterDate: LocalDateTime): List<Activity>
+  /**
+   * @param toDate is exclusive.
+   */
+  @OptIn(ExperimentalTime::class)
+  suspend fun getActivityList(
+    fromDate: LocalDate,
+    // Default: tomorrow
+    toDate: LocalDate = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date.plus(1, DateTimeUnit.DAY),
+  ): List<Activity>
 
+  @OptIn(ExperimentalTime::class)
   suspend fun createActivity(
-    activityType: ActivityType,
-    start: LocalDateTime,
+    exerciseType: ExerciseType,
+    start: Instant,
     duration: Duration,
     distanceMeters: Double,
   )

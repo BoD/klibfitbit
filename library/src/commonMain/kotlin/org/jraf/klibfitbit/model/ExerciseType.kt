@@ -25,12 +25,24 @@
 
 package org.jraf.klibfitbit.model
 
-enum class ActivityType(val id: Long) {
-  TreadmillWalk(91064),
-  Treadmill(90019),
-  Walk(90013),
-  Bike(90001),
-  Spinning(55001),
-  OutdoorBike(1071),
-  ;
+// https://developers.google.com/health/reference/rest/v4/users.dataTypes.dataPoints#Exercise.ExerciseType
+enum class ExerciseType {
+  EXERCISE_TYPE_UNSPECIFIED,
+  RUNNING,
+  WALKING,
+  BIKING,
+  SWIMMING,
+  HIKING,
+  YOGA,
+  PILATES,
+  WORKOUT,
+  HIIT,
+  WEIGHTLIFTING,
+  SPINNING,
+  STRENGTH_TRAINING,
+  TREADMILL,
+  TREADMILL_WALK,
+  OTHER,
+
+  UNKNOWN; // For unknown values returned by the API
 }
