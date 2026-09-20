@@ -33,7 +33,7 @@ import kotlin.time.Instant
 data class Activity(
   val id: String,
   val activityName: String,
-  val activityTypeId: String,
+  val exerciseType: ExerciseType,
   val calories: Int,
   val duration: Duration,
   val startTime: Instant,

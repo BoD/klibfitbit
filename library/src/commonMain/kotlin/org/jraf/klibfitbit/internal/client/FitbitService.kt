@@ -39,8 +39,8 @@ import io.ktor.http.contentType
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.offsetAt
 import org.jraf.klibfitbit.internal.json.JsonDataPoint
+import org.jraf.klibfitbit.internal.json.JsonDataPoints
 import org.jraf.klibfitbit.internal.json.JsonExercise
-import org.jraf.klibfitbit.internal.json.JsonExercises
 import org.jraf.klibfitbit.internal.json.JsonInterval
 import org.jraf.klibfitbit.internal.json.JsonOAuthTokens
 import org.jraf.klibfitbit.internal.json.JsonRefreshTokenResponse
@@ -52,7 +52,7 @@ import kotlin.time.Instant
 
 internal class FitbitService(
   private val httpClient: HttpClient,
-) {
+) : AutoCloseable {
   companion object {
     internal const val URL_BASE = "https://health.googleapis.com"
   }
@@ -100,8 +100,8 @@ internal class FitbitService(
     }.body()
   }
 
-  // https://dev.fitbit.com/build/reference/web-api/activity/get-activity-log-list/
-  suspend fun getActivityList(startDate: String, endDate: String): JsonExercises {
+  // https://developers.google.com/health/reference/rest/v4/users.dataTypes.dataPoints/list
+  suspend fun getActivityList(startDate: String, endDate: String): JsonDataPoints {
     return httpClient.get("$URL_BASE/v4/users/me/dataTypes/exercise/dataPoints") {
       contentType(ContentType.Application.Json)
       parameter(
@@ -111,7 +111,7 @@ internal class FitbitService(
     }.body()
   }
 
-  // https://dev.fitbit.com/build/reference/web-api/activity/create-activity-log/
+  // https://developers.google.com/health/reference/rest/v4/users.dataTypes.dataPoints/create
   @OptIn(ExperimentalTime::class)
   suspend fun createActivity(
     exerciseType: ExerciseType,
@@ -122,7 +122,7 @@ internal class FitbitService(
     httpClient.post("$URL_BASE/v4/users/me/dataTypes/exercise/dataPoints") {
       contentType(ContentType.Application.Json)
       setBody(
-        JsonDataPoint.Exercise(
+        JsonDataPoint(
           name = "",
           exercise = JsonExercise(
             interval = JsonInterval(
@@ -132,7 +132,7 @@ internal class FitbitService(
               endUtcOffset = start.plus(durationMillis.milliseconds).offsetInSeconds(),
             ),
             activeDuration = "${(durationMillis / 1000)}s",
-            exerciseType = exerciseType,
+            exerciseType = exerciseType.name,
             displayName = "My exercise", // Doesn't matter, it's overridden by Google
             metricsSummary = MetricsSummary(
               caloriesKcal = 0f,
@@ -142,6 +142,10 @@ internal class FitbitService(
         ),
       )
     }
+  }
+
+  override fun close() {
+    httpClient.close()
   }
 }
 

@@ -38,11 +38,9 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.http.URLBuilder
 import io.ktor.http.Url
 import io.ktor.serialization.kotlinx.json.json
-import kotlinx.datetime.DateTimeUnit
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.format.FormatStringsInDatetimeFormats
 import kotlinx.datetime.format.byUnicodePattern
-import kotlinx.datetime.plus
 import kotlinx.serialization.json.Json
 import okio.ByteString.Companion.toByteString
 import org.jraf.klibfitbit.client.FitbitClient
@@ -50,7 +48,6 @@ import org.jraf.klibfitbit.client.configuration.ClientConfiguration
 import org.jraf.klibfitbit.client.configuration.HttpLoggingLevel
 import org.jraf.klibfitbit.client.configuration.OAuthTokens
 import org.jraf.klibfitbit.internal.json.JsonDataPoint
-import org.jraf.klibfitbit.internal.json.JsonExercise
 import org.jraf.klibfitbit.model.Activity
 import org.jraf.klibfitbit.model.ExerciseType
 import org.jraf.klibfitbit.model.OAuthAuthorizationUrlResult
@@ -205,19 +202,21 @@ internal class FitbitClientImpl(
   }
 
   @OptIn(FormatStringsInDatetimeFormats::class)
-  override suspend fun getActivityList(date: LocalDate): List<Activity> {
+  override suspend fun getActivityList(
+    fromDate: LocalDate,
+    toDate: LocalDate,
+  ): List<Activity> {
     val dateTimeFormat = LocalDate.Format {
       byUnicodePattern("yyyy-MM-dd")
     }
-    val startDateString = dateTimeFormat.format(date)
-    val endDate = date.plus(1, DateTimeUnit.DAY)
-    val endDateString = dateTimeFormat.format(endDate)
+    val startDateString = dateTimeFormat.format(fromDate)
+    val endDateString = dateTimeFormat.format(toDate)
 
     val jsonActivityPage = service.getActivityList(startDateString, endDateString)
     return jsonActivityPage.dataPoints.map { it.toActivity() }
   }
 
-  @OptIn(FormatStringsInDatetimeFormats::class, ExperimentalTime::class)
+  @OptIn(ExperimentalTime::class)
   override suspend fun createActivity(
     exerciseType: ExerciseType,
     start: Instant,
@@ -231,22 +230,22 @@ internal class FitbitClientImpl(
       distanceMillimeters = (distanceMeters * 1000).toInt(),
     )
   }
-}
 
-private fun JsonExercise.activityTypeId(): Int {
-  return when (this.exerciseType) {
-    ExerciseType.WALKING -> 91064
-    ExerciseType.BIKING -> 90001
-    else -> 99999
+  override fun close() {
+    service.close()
   }
 }
 
+private fun String.toExerciseType(): ExerciseType {
+  return ExerciseType.entries.firstOrNull { it.name == this } ?: ExerciseType.UNKNOWN
+}
+
 @OptIn(ExperimentalTime::class)
-private fun JsonDataPoint.Exercise.toActivity(): Activity {
+private fun JsonDataPoint.toActivity(): Activity {
   return Activity(
     id = this.name.substringAfterLast("/"),
     activityName = this.exercise.displayName,
-    activityTypeId = this.exercise.activityTypeId().toString(),
+    exerciseType = this.exercise.exerciseType.toExerciseType(),
     calories = this.exercise.metricsSummary.caloriesKcal.toInt(),
     // Duration is like "123s"
     duration = Duration.parse(this.exercise.activeDuration),

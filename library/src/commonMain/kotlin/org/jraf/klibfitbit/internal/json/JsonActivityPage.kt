@@ -25,12 +25,7 @@
 
 package org.jraf.klibfitbit.internal.json
 
-import kotlinx.serialization.DeserializationStrategy
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.JsonContentPolymorphicSerializer
-import kotlinx.serialization.json.JsonElement
-import kotlinx.serialization.json.jsonObject
-import org.jraf.klibfitbit.model.ExerciseType
 import kotlin.time.ExperimentalTime
 import kotlin.time.Instant
 
@@ -44,7 +39,7 @@ data class JsonInterval @OptIn(ExperimentalTime::class) constructor(
 
 @Serializable
 data class MetricsSummary(
-  val caloriesKcal: Float=0f,
+  val caloriesKcal: Float = 0f,
   val distanceMillimeters: Int = 0,
 )
 
@@ -52,50 +47,19 @@ data class MetricsSummary(
 data class JsonExercise(
   val interval: JsonInterval,
   val activeDuration: String,
-  val exerciseType: ExerciseType,
+  val exerciseType: String,
   val displayName: String,
   val metricsSummary: MetricsSummary,
 )
 
 @Serializable
-data class JsonDistance(
-  val millimeters: Int,
-  val interval: JsonInterval,
+data class JsonDataPoint(
+  val name: String,
+  val exercise: JsonExercise,
 )
 
-@Serializable(with = DataPointSerializer::class)
-sealed class JsonDataPoint {
-  /**
-   * A DataPoint can have either an exercise or a distance attribute, but not both.
-   * See https://developers.google.com/health/reference/rest/v4/users.dataTypes.dataPoints#DataPoint
-   * Other types are possible too, but we only support these two for now.
-   */
-  abstract val name: String
-
-  @Serializable
-  data class Exercise(
-    override val name: String,
-    val exercise: JsonExercise,
-  ) : JsonDataPoint()
-
-  @Serializable
-  data class Distance(
-    override val name: String,
-    val distance: JsonDistance,
-  ) : JsonDataPoint()
-}
-
-object DataPointSerializer : JsonContentPolymorphicSerializer<JsonDataPoint>(JsonDataPoint::class) {
-  override fun selectDeserializer(element: JsonElement): DeserializationStrategy<JsonDataPoint> {
-    return when {
-      "exercise" in element.jsonObject -> JsonDataPoint.Exercise.serializer()
-      "distance" in element.jsonObject -> JsonDataPoint.Distance.serializer()
-      else -> error("Unhandled class $element")
-    }
-  }
-}
 
 @Serializable
-data class JsonExercises(
-  val dataPoints: List<JsonDataPoint.Exercise> = emptyList(),
+data class JsonDataPoints(
+  val dataPoints: List<JsonDataPoint> = emptyList(),
 )

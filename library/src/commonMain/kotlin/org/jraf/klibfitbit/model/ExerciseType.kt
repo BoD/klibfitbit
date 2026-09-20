@@ -25,8 +25,8 @@
 
 package org.jraf.klibfitbit.model
 
+// https://developers.google.com/health/reference/rest/v4/users.dataTypes.dataPoints#Exercise.ExerciseType
 enum class ExerciseType {
-  // https://developers.google.com/health/reference/rest/v4/users.dataTypes.dataPoints#Exercise.ExerciseType
   EXERCISE_TYPE_UNSPECIFIED,
   RUNNING,
   WALKING,
@@ -43,4 +43,6 @@ enum class ExerciseType {
   TREADMILL,
   TREADMILL_WALK,
   OTHER,
+
+  UNKNOWN; // For unknown values returned by the API
 }

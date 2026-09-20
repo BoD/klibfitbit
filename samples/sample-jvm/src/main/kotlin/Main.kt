@@ -34,15 +34,14 @@ import org.jraf.klibfitbit.model.ExerciseType
 import org.jraf.klibnanolog.logd
 import kotlin.time.Clock
 import kotlin.time.Duration.Companion.minutes
-import kotlin.time.ExperimentalTime
 
-@OptIn(ExperimentalTime::class)
 suspend fun main(av: Array<String>) {
-  val fitbitClient = FitbitClient.newInstance(
+  FitbitClient.newInstance(
     ClientConfiguration(
       clientId = av[0],
-      // Pass null the first time / pass accessToken/refreshToken that are logged below the next times
       clientSecret = av[1],
+      // You can pass null the first time when you don't have OAuth tokens yet.
+      // Otherwise, pass the accessToken/refreshToken that are logged below
       oAuthTokens = OAuthTokens(
         accessToken = av[2],
         refreshToken = av[3],
@@ -54,34 +53,34 @@ suspend fun main(av: Array<String>) {
   ) { oAuthTokens ->
     logd("accessToken: " + oAuthTokens.accessToken)
     logd("refreshToken: " + oAuthTokens.refreshToken)
-  }
+  }.use { fitbitClient ->
+    // Do this only the first time, to get OAuth tokens
+    val fetchTokens = false
+    if (fetchTokens) {
+      val authorizationUrlResult = fitbitClient.oAuthCreateAuthorizationUrl(
+        listOf(
+          "https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly",
+          "https://www.googleapis.com/auth/googlehealth.activity_and_fitness.writeonly",
+          "https://www.googleapis.com/auth/googlehealth.sleep.readonly",
+          "https://www.googleapis.com/auth/googlehealth.sleep.writeonly",
+        ),
+      )
+      println("Please visit this URL: ${authorizationUrlResult.authorizeUrl}")
+      println("Enter the callback URL:")
+      val callbackUrl = readln().trim()
+      fitbitClient.oAuthFetchTokens(authorizationUrlResult, callbackUrl)
+    }
 
-  // Do this only the first time:
-  val fetchTokens = false
-  if (fetchTokens) {
-    val authorizationUrlResult = fitbitClient.oAuthCreateAuthorizationUrl(
-      listOf(
-        "https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly",
-        "https://www.googleapis.com/auth/googlehealth.activity_and_fitness.writeonly",
-        "https://www.googleapis.com/auth/googlehealth.sleep.readonly",
-        "https://www.googleapis.com/auth/googlehealth.sleep.writeonly",
-      ),
+    // Create new activity
+    fitbitClient.createActivity(
+      exerciseType = ExerciseType.TREADMILL_WALK,
+      start = (Clock.System.now() - 5.minutes),
+      duration = 3.minutes,
+      distanceMeters = 342.5,
     )
-    println("Please visit this URL: ${authorizationUrlResult.authorizeUrl}")
-    println("Enter the callback URL:")
-    val callbackUrl = readln().trim()
-    fitbitClient.oAuthFetchTokens(authorizationUrlResult, callbackUrl)
+
+    // Get all activities from today
+    val today = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date
+    logd(fitbitClient.getActivityList(today))
   }
-
-  // Create new activity
-  fitbitClient.createActivity(
-    exerciseType = ExerciseType.TREADMILL_WALK,
-    start = (Clock.System.now() - 5.minutes),
-    duration = 3.minutes,
-    distanceMeters = 361.3,
-  )
-
-  // Get all activities from yesterday
-  val today = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date
-  logd(fitbitClient.getActivityList(today).sumOf { it.distanceMeters }.toString())
 }
