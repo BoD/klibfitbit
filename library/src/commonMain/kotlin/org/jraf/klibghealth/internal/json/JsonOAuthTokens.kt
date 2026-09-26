@@ -8,7 +8,7 @@
  * repository.
  *
  * Copyright (C) 2025-present Benoit 'BoD' Lubek (BoD@JRAF.org)
- * and contributors (https://github.com/BoD/klibfitbit/graphs/contributors)
+ * and contributors (https://github.com/BoD/klibghealth/graphs/contributors)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,14 +23,17 @@
  * limitations under the License.
  */
 
-package org.jraf.klibfitbit.client.configuration
+package org.jraf.klibghealth.internal.json
 
-data class ClientConfiguration(
-  val clientId: String,
-  // Google requires client_secret even for desktop applications
-  // https://developers.google.com/identity/protocols/oauth2/native-app
-  // "The client_secret is not applicable to requests from clients registered as Android, iOS, or Chrome applications"
-  val clientSecret: String,
-  val oAuthTokens: OAuthTokens?,
-  val httpConfiguration: HttpConfiguration = HttpConfiguration(),
+import kotlinx.serialization.Serializable
+
+@Serializable
+internal data class JsonOAuthTokens(
+  val access_token: String,
+  val refresh_token: String,
+)
+
+@Serializable
+internal data class JsonRefreshTokenResponse(
+    val access_token: String,
 )

@@ -7,8 +7,8 @@
  *                              /___/
  * repository.
  *
- * Copyright (C) 2025-present Benoit 'BoD' Lubek (BoD@JRAF.org)
- * and contributors (https://github.com/BoD/klibfitbit/graphs/contributors)
+ * Copyright (C) 2026-present Benoit 'BoD' Lubek (BoD@JRAF.org)
+ * and contributors (https://github.com/BoD/klibghealth/graphs/contributors)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,24 +23,21 @@
  * limitations under the License.
  */
 
-package org.jraf.klibfitbit.model
+package org.jraf.klibghealth.internal.model
 
+import org.jraf.klibghealth.model.DataPoint
+import org.jraf.klibghealth.model.ExerciseType
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 import kotlin.time.Instant
 
-sealed interface DataPoint {
-  val name: String
-
-  @OptIn(ExperimentalTime::class)
-  data class Exercise(
-    override val name: String,
-    val startTime: Instant,
-    val endTime: Instant,
-    val exerciseType: ExerciseType,
-    val caloriesKcal: Int,
-    val activeDuration: Duration,
-    val distanceMeters: Double,
-  ) : DataPoint
-}
-
+@OptIn(ExperimentalTime::class)
+internal data class ExerciseImpl(
+  override val name: String,
+  override val startTime: Instant,
+  override val endTime: Instant,
+  override val exerciseType: ExerciseType,
+  override val caloriesKcal: Int,
+  override val activeDuration: Duration,
+  override val distanceMeters: Double,
+) : DataPoint.Exercise

@@ -1,0 +1,178 @@
+// Klib ABI Dump
+// Targets: [macosArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <org.jraf.klibghealth:klibghealth>
+abstract interface org.jraf.klibghealth.client/GoogleHealthClient : kotlin/AutoCloseable { // org.jraf.klibghealth.client/GoogleHealthClient|null[0]
+    abstract val dataPoint // org.jraf.klibghealth.client/GoogleHealthClient.dataPoint|{}dataPoint[0]
+        abstract fun <get-dataPoint>(): org.jraf.klibghealth.client/GoogleHealthClient.DataPoint // org.jraf.klibghealth.client/GoogleHealthClient.dataPoint.<get-dataPoint>|<get-dataPoint>(){}[0]
+    abstract val oAuth // org.jraf.klibghealth.client/GoogleHealthClient.oAuth|{}oAuth[0]
+        abstract fun <get-oAuth>(): org.jraf.klibghealth.client/GoogleHealthClient.OAuth // org.jraf.klibghealth.client/GoogleHealthClient.oAuth.<get-oAuth>|<get-oAuth>(){}[0]
+
+    abstract interface DataPoint { // org.jraf.klibghealth.client/GoogleHealthClient.DataPoint|null[0]
+        abstract suspend fun createDataPoint(org.jraf.klibghealth.model/ExerciseType, kotlin.time/Instant, kotlin.time/Duration, kotlin/Double): kotlin/Result<kotlin/Unit> // org.jraf.klibghealth.client/GoogleHealthClient.DataPoint.createDataPoint|createDataPoint(org.jraf.klibghealth.model.ExerciseType;kotlin.time.Instant;kotlin.time.Duration;kotlin.Double){}[0]
+        abstract suspend fun getDataPointList(kotlinx.datetime/LocalDate, kotlinx.datetime/LocalDate = ...): kotlin/Result<kotlin.collections/List<org.jraf.klibghealth.model/DataPoint>> // org.jraf.klibghealth.client/GoogleHealthClient.DataPoint.getDataPointList|getDataPointList(kotlinx.datetime.LocalDate;kotlinx.datetime.LocalDate){}[0]
+    }
+
+    abstract interface OAuth { // org.jraf.klibghealth.client/GoogleHealthClient.OAuth|null[0]
+        abstract fun createAuthorizationUrl(kotlin/Array<out org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope>...): org.jraf.klibghealth.model/OAuthAuthorizationUrlAndCodeVerifier // org.jraf.klibghealth.client/GoogleHealthClient.OAuth.createAuthorizationUrl|createAuthorizationUrl(kotlin.Array<out|org.jraf.klibghealth.client.GoogleHealthClient.Configuration.Auth.Scope>...){}[0]
+        abstract suspend fun fetchTokens(org.jraf.klibghealth.model/OAuthAuthorizationUrlAndCodeVerifier, kotlin/String): kotlin/Result<kotlin/Unit> // org.jraf.klibghealth.client/GoogleHealthClient.OAuth.fetchTokens|fetchTokens(org.jraf.klibghealth.model.OAuthAuthorizationUrlAndCodeVerifier;kotlin.String){}[0]
+    }
+
+    final class Configuration { // org.jraf.klibghealth.client/GoogleHealthClient.Configuration|null[0]
+        constructor <init>(org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth, org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http = ...) // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.<init>|<init>(org.jraf.klibghealth.client.GoogleHealthClient.Configuration.Auth;org.jraf.klibghealth.client.GoogleHealthClient.Configuration.Http){}[0]
+
+        final val auth // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.auth|{}auth[0]
+            final fun <get-auth>(): org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.auth.<get-auth>|<get-auth>(){}[0]
+        final val http // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.http|{}http[0]
+            final fun <get-http>(): org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.http.<get-http>|<get-http>(){}[0]
+
+        final class Auth { // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth|null[0]
+            constructor <init>(kotlin/String, kotlin/String, org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.OAuthTokens?) // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.<init>|<init>(kotlin.String;kotlin.String;org.jraf.klibghealth.client.GoogleHealthClient.Configuration.Auth.OAuthTokens?){}[0]
+
+            final val clientId // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.clientId|{}clientId[0]
+                final fun <get-clientId>(): kotlin/String // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.clientId.<get-clientId>|<get-clientId>(){}[0]
+            final val clientSecret // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.clientSecret|{}clientSecret[0]
+                final fun <get-clientSecret>(): kotlin/String // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.clientSecret.<get-clientSecret>|<get-clientSecret>(){}[0]
+            final val oAuthTokens // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.oAuthTokens|{}oAuthTokens[0]
+                final fun <get-oAuthTokens>(): org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.OAuthTokens? // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.oAuthTokens.<get-oAuthTokens>|<get-oAuthTokens>(){}[0]
+
+            final class OAuthTokens { // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.OAuthTokens|null[0]
+                constructor <init>(kotlin/String, kotlin/String) // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.OAuthTokens.<init>|<init>(kotlin.String;kotlin.String){}[0]
+
+                final val accessToken // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.OAuthTokens.accessToken|{}accessToken[0]
+                    final fun <get-accessToken>(): kotlin/String // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.OAuthTokens.accessToken.<get-accessToken>|<get-accessToken>(){}[0]
+                final val refreshToken // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.OAuthTokens.refreshToken|{}refreshToken[0]
+                    final fun <get-refreshToken>(): kotlin/String // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.OAuthTokens.refreshToken.<get-refreshToken>|<get-refreshToken>(){}[0]
+            }
+
+            open class Scope { // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope|null[0]
+                constructor <init>(kotlin/String) // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope.<init>|<init>(kotlin.String){}[0]
+
+                abstract interface ActivityAndFitness { // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope.ActivityAndFitness|null[0]
+                    final object ReadOnly : org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope.ActivityAndFitness.ReadOnly|null[0]
+
+                    final object WriteOnly : org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope.ActivityAndFitness.WriteOnly|null[0]
+                }
+
+                abstract interface Sleep { // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope.Sleep|null[0]
+                    final object ReadOnly : org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope.Sleep.ReadOnly|null[0]
+
+                    final object WriteOnly : org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.Scope.Sleep.WriteOnly|null[0]
+                }
+            }
+        }
+
+        final class Http { // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http|null[0]
+            constructor <init>(org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel = ..., org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpProxy? = ...) // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.<init>|<init>(org.jraf.klibghealth.client.GoogleHealthClient.Configuration.Http.HttpLoggingLevel;org.jraf.klibghealth.client.GoogleHealthClient.Configuration.Http.HttpProxy?){}[0]
+
+            final val httpProxy // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.httpProxy|{}httpProxy[0]
+                final fun <get-httpProxy>(): org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpProxy? // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.httpProxy.<get-httpProxy>|<get-httpProxy>(){}[0]
+            final val loggingLevel // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.loggingLevel|{}loggingLevel[0]
+                final fun <get-loggingLevel>(): org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.loggingLevel.<get-loggingLevel>|<get-loggingLevel>(){}[0]
+
+            final enum class HttpLoggingLevel : kotlin/Enum<org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel> { // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel|null[0]
+                enum entry ALL // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel.ALL|null[0]
+                enum entry BODY // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel.BODY|null[0]
+                enum entry HEADERS // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel.HEADERS|null[0]
+                enum entry INFO // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel.INFO|null[0]
+                enum entry NONE // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel.NONE|null[0]
+
+                final val entries // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel.entries|#static{}entries[0]
+                    final fun <get-entries>(): kotlin.enums/EnumEntries<org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel> // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel.entries.<get-entries>|<get-entries>#static(){}[0]
+
+                final fun valueOf(kotlin/String): org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel.valueOf|valueOf#static(kotlin.String){}[0]
+                final fun values(): kotlin/Array<org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel> // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpLoggingLevel.values|values#static(){}[0]
+            }
+
+            final class HttpProxy { // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpProxy|null[0]
+                constructor <init>(kotlin/String, kotlin/Int) // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpProxy.<init>|<init>(kotlin.String;kotlin.Int){}[0]
+
+                final val host // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpProxy.host|{}host[0]
+                    final fun <get-host>(): kotlin/String // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpProxy.host.<get-host>|<get-host>(){}[0]
+                final val port // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpProxy.port|{}port[0]
+                    final fun <get-port>(): kotlin/Int // org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Http.HttpProxy.port.<get-port>|<get-port>(){}[0]
+            }
+        }
+    }
+}
+
+abstract interface org.jraf.klibghealth.model/OAuthAuthorizationUrlAndCodeVerifier { // org.jraf.klibghealth.model/OAuthAuthorizationUrlAndCodeVerifier|null[0]
+    abstract val authorizeUrl // org.jraf.klibghealth.model/OAuthAuthorizationUrlAndCodeVerifier.authorizeUrl|{}authorizeUrl[0]
+        abstract fun <get-authorizeUrl>(): kotlin/String // org.jraf.klibghealth.model/OAuthAuthorizationUrlAndCodeVerifier.authorizeUrl.<get-authorizeUrl>|<get-authorizeUrl>(){}[0]
+    abstract val codeVerifier // org.jraf.klibghealth.model/OAuthAuthorizationUrlAndCodeVerifier.codeVerifier|{}codeVerifier[0]
+        abstract fun <get-codeVerifier>(): kotlin/String // org.jraf.klibghealth.model/OAuthAuthorizationUrlAndCodeVerifier.codeVerifier.<get-codeVerifier>|<get-codeVerifier>(){}[0]
+}
+
+sealed interface org.jraf.klibghealth.model/DataPoint { // org.jraf.klibghealth.model/DataPoint|null[0]
+    abstract val name // org.jraf.klibghealth.model/DataPoint.name|{}name[0]
+        abstract fun <get-name>(): kotlin/String // org.jraf.klibghealth.model/DataPoint.name.<get-name>|<get-name>(){}[0]
+
+    abstract interface Exercise : org.jraf.klibghealth.model/DataPoint { // org.jraf.klibghealth.model/DataPoint.Exercise|null[0]
+        abstract val activeDuration // org.jraf.klibghealth.model/DataPoint.Exercise.activeDuration|{}activeDuration[0]
+            abstract fun <get-activeDuration>(): kotlin.time/Duration // org.jraf.klibghealth.model/DataPoint.Exercise.activeDuration.<get-activeDuration>|<get-activeDuration>(){}[0]
+        abstract val caloriesKcal // org.jraf.klibghealth.model/DataPoint.Exercise.caloriesKcal|{}caloriesKcal[0]
+            abstract fun <get-caloriesKcal>(): kotlin/Int // org.jraf.klibghealth.model/DataPoint.Exercise.caloriesKcal.<get-caloriesKcal>|<get-caloriesKcal>(){}[0]
+        abstract val distanceMeters // org.jraf.klibghealth.model/DataPoint.Exercise.distanceMeters|{}distanceMeters[0]
+            abstract fun <get-distanceMeters>(): kotlin/Double // org.jraf.klibghealth.model/DataPoint.Exercise.distanceMeters.<get-distanceMeters>|<get-distanceMeters>(){}[0]
+        abstract val endTime // org.jraf.klibghealth.model/DataPoint.Exercise.endTime|{}endTime[0]
+            abstract fun <get-endTime>(): kotlin.time/Instant // org.jraf.klibghealth.model/DataPoint.Exercise.endTime.<get-endTime>|<get-endTime>(){}[0]
+        abstract val exerciseType // org.jraf.klibghealth.model/DataPoint.Exercise.exerciseType|{}exerciseType[0]
+            abstract fun <get-exerciseType>(): org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/DataPoint.Exercise.exerciseType.<get-exerciseType>|<get-exerciseType>(){}[0]
+        abstract val name // org.jraf.klibghealth.model/DataPoint.Exercise.name|{}name[0]
+            abstract fun <get-name>(): kotlin/String // org.jraf.klibghealth.model/DataPoint.Exercise.name.<get-name>|<get-name>(){}[0]
+        abstract val startTime // org.jraf.klibghealth.model/DataPoint.Exercise.startTime|{}startTime[0]
+            abstract fun <get-startTime>(): kotlin.time/Instant // org.jraf.klibghealth.model/DataPoint.Exercise.startTime.<get-startTime>|<get-startTime>(){}[0]
+    }
+}
+
+open class org.jraf.klibghealth.model/ExerciseType { // org.jraf.klibghealth.model/ExerciseType|null[0]
+    constructor <init>(kotlin/String) // org.jraf.klibghealth.model/ExerciseType.<init>|<init>(kotlin.String){}[0]
+
+    final val exerciseType // org.jraf.klibghealth.model/ExerciseType.exerciseType|{}exerciseType[0]
+        final fun <get-exerciseType>(): kotlin/String // org.jraf.klibghealth.model/ExerciseType.exerciseType.<get-exerciseType>|<get-exerciseType>(){}[0]
+
+    final class Unknown : org.jraf.klibghealth.model/ExerciseType { // org.jraf.klibghealth.model/ExerciseType.Unknown|null[0]
+        constructor <init>(kotlin/String) // org.jraf.klibghealth.model/ExerciseType.Unknown.<init>|<init>(kotlin.String){}[0]
+    }
+
+    final object Biking : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Biking|null[0]
+
+    final object ExerciseTypeUnspecified : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.ExerciseTypeUnspecified|null[0]
+
+    final object Hiit : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Hiit|null[0]
+
+    final object Hiking : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Hiking|null[0]
+
+    final object Other : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Other|null[0]
+
+    final object Pilates : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Pilates|null[0]
+
+    final object Running : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Running|null[0]
+
+    final object Spinning : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Spinning|null[0]
+
+    final object StrengthTraining : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.StrengthTraining|null[0]
+
+    final object Swimming : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Swimming|null[0]
+
+    final object Treadmill : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Treadmill|null[0]
+
+    final object TreadmillWalk : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.TreadmillWalk|null[0]
+
+    final object Walking : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Walking|null[0]
+
+    final object Weightlifting : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Weightlifting|null[0]
+
+    final object Workout : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Workout|null[0]
+
+    final object Yoga : org.jraf.klibghealth.model/ExerciseType // org.jraf.klibghealth.model/ExerciseType.Yoga|null[0]
+}
+
+final val org.jraf.klibghealth/VERSION // org.jraf.klibghealth/VERSION|{}VERSION[0]
+    final fun <get-VERSION>(): kotlin/String // org.jraf.klibghealth/VERSION.<get-VERSION>|<get-VERSION>(){}[0]
+
+final fun org.jraf.klibghealth.client/GoogleHealthClient(org.jraf.klibghealth.client/GoogleHealthClient.Configuration, kotlin.coroutines/SuspendFunction1<org.jraf.klibghealth.client/GoogleHealthClient.Configuration.Auth.OAuthTokens, kotlin/Unit>): org.jraf.klibghealth.client/GoogleHealthClient // org.jraf.klibghealth.client/GoogleHealthClient|GoogleHealthClient(org.jraf.klibghealth.client.GoogleHealthClient.Configuration;kotlin.coroutines.SuspendFunction1<org.jraf.klibghealth.client.GoogleHealthClient.Configuration.Auth.OAuthTokens,kotlin.Unit>){}[0]

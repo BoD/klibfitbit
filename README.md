@@ -1,5 +1,5 @@
-# KLibFitbit
+# KLibGHealth
 
-A client library for the Fitbit API for Kotlin.
+A [Google Health](https://developers.google.com/health) (previously Fitbit) API client library for Kotlin.
 
 Work in progress!!!
