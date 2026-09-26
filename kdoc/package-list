@@ -1,9 +1,7 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 
-module:klibfitbit
-org.jraf.klibfitbit
-org.jraf.klibfitbit.client
-org.jraf.klibfitbit.client.configuration
-org.jraf.klibfitbit.internal.json
-org.jraf.klibfitbit.model
+module:klibghealth
+org.jraf.klibghealth
+org.jraf.klibghealth.client
+org.jraf.klibghealth.model
