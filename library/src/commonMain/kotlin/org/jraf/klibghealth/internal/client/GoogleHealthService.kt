@@ -8,7 +8,7 @@
  * repository.
  *
  * Copyright (C) 2025-present Benoit 'BoD' Lubek (BoD@JRAF.org)
- * and contributors (https://github.com/BoD/klibfitbit/graphs/contributors)
+ * and contributors (https://github.com/BoD/klibghealth/graphs/contributors)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
  * limitations under the License.
  */
 
-package org.jraf.klibfitbit.internal.client
+package org.jraf.klibghealth.internal.client
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -38,22 +38,21 @@ import io.ktor.http.Parameters
 import io.ktor.http.contentType
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.offsetAt
-import org.jraf.klibfitbit.internal.json.JsonDataPoint
-import org.jraf.klibfitbit.internal.json.JsonDataPoints
-import org.jraf.klibfitbit.internal.json.JsonExercise
-import org.jraf.klibfitbit.internal.json.JsonInterval
-import org.jraf.klibfitbit.internal.json.JsonOAuthTokens
-import org.jraf.klibfitbit.internal.json.JsonRefreshTokenResponse
-import org.jraf.klibfitbit.internal.json.MetricsSummary
-import org.jraf.klibfitbit.model.ExerciseType
+import org.jraf.klibghealth.internal.json.JsonDataPoint
+import org.jraf.klibghealth.internal.json.JsonDataPoints
+import org.jraf.klibghealth.internal.json.JsonExercise
+import org.jraf.klibghealth.internal.json.JsonInterval
+import org.jraf.klibghealth.internal.json.JsonOAuthTokens
+import org.jraf.klibghealth.internal.json.JsonRefreshTokenResponse
+import org.jraf.klibghealth.internal.json.MetricsSummary
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 import kotlin.time.Instant
 
-internal class FitbitService(
+internal class GoogleHealthService(
   private val httpClient: HttpClient,
 ) : AutoCloseable {
-  companion object {
+  internal companion object {
     internal const val URL_BASE = "https://health.googleapis.com"
   }
 
@@ -114,7 +113,7 @@ internal class FitbitService(
   // https://developers.google.com/health/reference/rest/v4/users.dataTypes.dataPoints/create
   @OptIn(ExperimentalTime::class)
   suspend fun createDataPoint(
-    exerciseType: ExerciseType,
+    exerciseType: String,
     startTime: Instant,
     activeDuration: Duration,
     distanceMillimeters: Int,
@@ -132,7 +131,7 @@ internal class FitbitService(
               endUtcOffset = endTime.offsetInSeconds(),
             ),
             activeDuration = "${activeDuration.inWholeSeconds}s",
-            exerciseType = exerciseType.name,
+            exerciseType = exerciseType,
             metricsSummary = MetricsSummary(
               caloriesKcal = 0f,
               distanceMillimeters = distanceMillimeters,

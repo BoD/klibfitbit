@@ -1,4 +1,4 @@
-rootProject.name = "klibfitbit-root"
+rootProject.name = "klibghealth-root"
 
 pluginManagement {
   repositories {
@@ -18,11 +18,11 @@ dependencyResolutionManagement {
 
 plugins {
   // See https://splitties.github.io/refreshVersions/
-  id("de.fayard.refreshVersions") version "0.60.6"
+  id("de.fayard.refreshVersions").version("0.60.6")
 }
 
 include(":library")
-project(":library").name = "klibfitbit"
+project(":library").name = "klibghealth"
 
 // Include all the sample modules from the "samples" directory
 file("samples").listFiles()!!.forEach { dir ->

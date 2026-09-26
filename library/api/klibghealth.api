@@ -1,0 +1,191 @@
+public final class org/jraf/klibghealth/VersionKt {
+	public static final field VERSION Ljava/lang/String;
+}
+
+public abstract interface class org/jraf/klibghealth/client/GoogleHealthClient : java/lang/AutoCloseable {
+	public abstract fun getDataPoint ()Lorg/jraf/klibghealth/client/GoogleHealthClient$DataPoint;
+	public abstract fun getOAuth ()Lorg/jraf/klibghealth/client/GoogleHealthClient$OAuth;
+}
+
+public final class org/jraf/klibghealth/client/GoogleHealthClient$Configuration {
+	public fun <init> (Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth;Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http;)V
+	public synthetic fun <init> (Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth;Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAuth ()Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth;
+	public final fun getHttp ()Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http;
+}
+
+public final class org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$OAuthTokens;)V
+	public final fun getClientId ()Ljava/lang/String;
+	public final fun getClientSecret ()Ljava/lang/String;
+	public final fun getOAuthTokens ()Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$OAuthTokens;
+}
+
+public final class org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$OAuthTokens {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun getAccessToken ()Ljava/lang/String;
+	public final fun getRefreshToken ()Ljava/lang/String;
+}
+
+public class org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope {
+	public fun <init> (Ljava/lang/String;)V
+}
+
+public abstract interface class org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope$ActivityAndFitness {
+}
+
+public final class org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope$ActivityAndFitness$ReadOnly : org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope {
+	public static final field INSTANCE Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope$ActivityAndFitness$ReadOnly;
+}
+
+public final class org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope$ActivityAndFitness$WriteOnly : org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope {
+	public static final field INSTANCE Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope$ActivityAndFitness$WriteOnly;
+}
+
+public abstract interface class org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope$Sleep {
+}
+
+public final class org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope$Sleep$ReadOnly : org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope {
+	public static final field INSTANCE Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope$Sleep$ReadOnly;
+}
+
+public final class org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope$Sleep$WriteOnly : org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope {
+	public static final field INSTANCE Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope$Sleep$WriteOnly;
+}
+
+public final class org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http {
+	public fun <init> ()V
+	public fun <init> (Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpLoggingLevel;Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpProxy;)V
+	public synthetic fun <init> (Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpLoggingLevel;Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpProxy;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getHttpProxy ()Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpProxy;
+	public final fun getLoggingLevel ()Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpLoggingLevel;
+}
+
+public final class org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpLoggingLevel : java/lang/Enum {
+	public static final field ALL Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpLoggingLevel;
+	public static final field BODY Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpLoggingLevel;
+	public static final field HEADERS Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpLoggingLevel;
+	public static final field INFO Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpLoggingLevel;
+	public static final field NONE Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpLoggingLevel;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpLoggingLevel;
+	public static fun values ()[Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpLoggingLevel;
+}
+
+public final class org/jraf/klibghealth/client/GoogleHealthClient$Configuration$Http$HttpProxy {
+	public fun <init> (Ljava/lang/String;I)V
+	public final fun getHost ()Ljava/lang/String;
+	public final fun getPort ()I
+}
+
+public abstract interface class org/jraf/klibghealth/client/GoogleHealthClient$DataPoint {
+	public abstract fun createDataPoint-3utLRjc (Lorg/jraf/klibghealth/model/ExerciseType;Lkotlin/time/Instant;JDLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getDataPointList-0E7RQCE (Lkotlinx/datetime/LocalDate;Lkotlinx/datetime/LocalDate;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun getDataPointList-0E7RQCE$default (Lorg/jraf/klibghealth/client/GoogleHealthClient$DataPoint;Lkotlinx/datetime/LocalDate;Lkotlinx/datetime/LocalDate;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class org/jraf/klibghealth/client/GoogleHealthClient$DataPoint$DefaultImpls {
+	public static synthetic fun getDataPointList-0E7RQCE$default (Lorg/jraf/klibghealth/client/GoogleHealthClient$DataPoint;Lkotlinx/datetime/LocalDate;Lkotlinx/datetime/LocalDate;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class org/jraf/klibghealth/client/GoogleHealthClient$OAuth {
+	public abstract fun createAuthorizationUrl ([Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration$Auth$Scope;)Lorg/jraf/klibghealth/model/OAuthAuthorizationUrlAndCodeVerifier;
+	public abstract fun fetchTokens-0E7RQCE (Lorg/jraf/klibghealth/model/OAuthAuthorizationUrlAndCodeVerifier;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class org/jraf/klibghealth/client/GoogleHealthClientKt {
+	public static final fun GoogleHealthClient (Lorg/jraf/klibghealth/client/GoogleHealthClient$Configuration;Lkotlin/jvm/functions/Function2;)Lorg/jraf/klibghealth/client/GoogleHealthClient;
+}
+
+public abstract interface class org/jraf/klibghealth/model/DataPoint {
+	public abstract fun getName ()Ljava/lang/String;
+}
+
+public abstract interface class org/jraf/klibghealth/model/DataPoint$Exercise : org/jraf/klibghealth/model/DataPoint {
+	public abstract fun getActiveDuration-UwyO8pc ()J
+	public abstract fun getCaloriesKcal ()I
+	public abstract fun getDistanceMeters ()D
+	public abstract fun getEndTime ()Lkotlin/time/Instant;
+	public abstract fun getExerciseType ()Lorg/jraf/klibghealth/model/ExerciseType;
+	public abstract fun getName ()Ljava/lang/String;
+	public abstract fun getStartTime ()Lkotlin/time/Instant;
+}
+
+public class org/jraf/klibghealth/model/ExerciseType {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun getExerciseType ()Ljava/lang/String;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Biking : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Biking;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$ExerciseTypeUnspecified : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$ExerciseTypeUnspecified;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Hiit : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Hiit;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Hiking : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Hiking;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Other : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Other;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Pilates : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Pilates;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Running : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Running;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Spinning : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Spinning;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$StrengthTraining : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$StrengthTraining;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Swimming : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Swimming;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Treadmill : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Treadmill;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$TreadmillWalk : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$TreadmillWalk;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Unknown : org/jraf/klibghealth/model/ExerciseType {
+	public fun <init> (Ljava/lang/String;)V
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Walking : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Walking;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Weightlifting : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Weightlifting;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Workout : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Workout;
+}
+
+public final class org/jraf/klibghealth/model/ExerciseType$Yoga : org/jraf/klibghealth/model/ExerciseType {
+	public static final field INSTANCE Lorg/jraf/klibghealth/model/ExerciseType$Yoga;
+}
+
+public abstract interface class org/jraf/klibghealth/model/OAuthAuthorizationUrlAndCodeVerifier {
+	public abstract fun getAuthorizeUrl ()Ljava/lang/String;
+	public abstract fun getCodeVerifier ()Ljava/lang/String;
+}
+

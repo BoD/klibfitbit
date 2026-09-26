@@ -13,7 +13,7 @@ dependencies {
   implementation(libs.kotlinx.datetime)
 
   // Library
-  implementation(project(":klibfitbit"))
+  implementation(project(":klibghealth"))
 }
 
 // See https://github.com/BoD/k2o/pull/4

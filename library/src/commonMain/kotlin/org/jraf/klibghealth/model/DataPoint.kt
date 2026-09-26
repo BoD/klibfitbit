@@ -8,7 +8,7 @@
  * repository.
  *
  * Copyright (C) 2025-present Benoit 'BoD' Lubek (BoD@JRAF.org)
- * and contributors (https://github.com/BoD/klibfitbit/graphs/contributors)
+ * and contributors (https://github.com/BoD/klibghealth/graphs/contributors)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,23 @@
  * limitations under the License.
  */
 
-package org.jraf.klibfitbit.model
+package org.jraf.klibghealth.model
 
-data class OAuthAuthorizationUrlResult(
-  val authorizeUrl: String,
-  val codeVerifier: String,
-)
+import kotlin.time.Duration
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
+
+sealed interface DataPoint {
+  val name: String
+
+  @OptIn(ExperimentalTime::class)
+  interface Exercise : DataPoint {
+    override val name: String
+    val startTime: Instant
+    val endTime: Instant
+    val exerciseType: ExerciseType
+    val caloriesKcal: Int
+    val activeDuration: Duration
+    val distanceMeters: Double
+  }
+}

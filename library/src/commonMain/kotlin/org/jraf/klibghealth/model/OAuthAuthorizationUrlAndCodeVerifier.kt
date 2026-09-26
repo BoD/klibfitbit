@@ -8,7 +8,7 @@
  * repository.
  *
  * Copyright (C) 2025-present Benoit 'BoD' Lubek (BoD@JRAF.org)
- * and contributors (https://github.com/BoD/klibfitbit/graphs/contributors)
+ * and contributors (https://github.com/BoD/klibghealth/graphs/contributors)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,40 +23,9 @@
  * limitations under the License.
  */
 
-package org.jraf.klibfitbit.internal.json
+package org.jraf.klibghealth.model
 
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class JsonInterval(
-  val startTime: String,
-  val startUtcOffset: String,
-  val endTime: String,
-  val endUtcOffset: String,
-)
-
-@Serializable
-data class MetricsSummary(
-  val caloriesKcal: Float = 0f,
-  val distanceMillimeters: Int = 0,
-)
-
-@Serializable
-data class JsonExercise(
-  val interval: JsonInterval,
-  val activeDuration: String,
-  val exerciseType: String,
-  val metricsSummary: MetricsSummary,
-)
-
-@Serializable
-data class JsonDataPoint(
-  val name: String? = null,
-  val exercise: JsonExercise,
-)
-
-
-@Serializable
-data class JsonDataPoints(
-  val dataPoints: List<JsonDataPoint> = emptyList(),
-)
+interface OAuthAuthorizationUrlAndCodeVerifier {
+  val authorizeUrl: String
+  val codeVerifier: String
+}
