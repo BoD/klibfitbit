@@ -1,0 +1,169 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.jraf.klibghealth",
+    "module": "klibghealth",
+    "version": "1.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadataApiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "klibghealth-metadata-1.1.0.jar",
+          "url": "klibghealth-1.1.0.jar",
+          "size": 12403,
+          "sha512": "392188b40c9d64b8b2fe5d6deac02fa75dc7bcbbf189a692f8088546974a4574e1240ee931b6ba06d125fe59d618d874f358b5adb59c0b68d12621ed7d4e356f",
+          "sha256": "d9ace0977ab04cd24a2ae0a438f7529b5cd63f3aa9b9ac2dfadd36ee3cfe99a1",
+          "sha1": "5f09cdeb670bd7fb86633e8f519603fa0555408d",
+          "md5": "fa79eeaa4d7a38774066ca164c231ee5"
+        }
+      ]
+    },
+    {
+      "name": "metadataSourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "files": [
+        {
+          "name": "klibghealth-kotlin-1.1.0-sources.jar",
+          "url": "klibghealth-1.1.0-sources.jar",
+          "size": 15460,
+          "sha512": "7cf467ffc70945c8a6438a8e54435a77f3534c388b2f2db0763a27573be911ac59d68aea3bf1ac941ae4f75bb4616e3f2c71a4909a562cb2941d2a868a72fa6e",
+          "sha256": "18151de7d5a439551a997fdb3383b8c346c8313577729e4e332391b9d8bf64a9",
+          "sha1": "0ad130dd2ef7400229ab15be2281c1a4d7be5eb1",
+          "md5": "245f1f036c1ba414ac9a8443dac891ca"
+        }
+      ]
+    },
+    {
+      "name": "jvmApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../klibghealth-jvm/1.1.0/klibghealth-jvm-1.1.0.module",
+        "group": "org.jraf.klibghealth",
+        "module": "klibghealth-jvm",
+        "version": "1.1.0"
+      }
+    },
+    {
+      "name": "jvmRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../klibghealth-jvm/1.1.0/klibghealth-jvm-1.1.0.module",
+        "group": "org.jraf.klibghealth",
+        "module": "klibghealth-jvm",
+        "version": "1.1.0"
+      }
+    },
+    {
+      "name": "jvmSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../klibghealth-jvm/1.1.0/klibghealth-jvm-1.1.0.module",
+        "group": "org.jraf.klibghealth",
+        "module": "klibghealth-jvm",
+        "version": "1.1.0"
+      }
+    },
+    {
+      "name": "macosArm64ApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../klibghealth-macosarm64/1.1.0/klibghealth-macosarm64-1.1.0.module",
+        "group": "org.jraf.klibghealth",
+        "module": "klibghealth-macosarm64",
+        "version": "1.1.0"
+      }
+    },
+    {
+      "name": "macosArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../klibghealth-macosarm64/1.1.0/klibghealth-macosarm64-1.1.0.module",
+        "group": "org.jraf.klibghealth",
+        "module": "klibghealth-macosarm64",
+        "version": "1.1.0"
+      }
+    },
+    {
+      "name": "macosArm64MetadataElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../klibghealth-macosarm64/1.1.0/klibghealth-macosarm64-1.1.0.module",
+        "group": "org.jraf.klibghealth",
+        "module": "klibghealth-macosarm64",
+        "version": "1.1.0"
+      }
+    }
+  ]
+}
